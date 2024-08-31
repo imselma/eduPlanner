@@ -1,0 +1,110 @@
+html {
+    height: 100%;
+    width: 100%;
+}
+.profile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Ensure items are evenly spaced */
+    padding: 10px;
+    background-color: hsl(208, 64%, 38%); /* Converted #1D809F to HSL */
+    background-image: radial-gradient(650px circle at 0% 0%,
+        hsl(208, 64%, 50%) 15%, /* Lightened #1D809F */
+        hsl(208, 64%, 45%) 35%, /* Slightly lighter #1D809F */
+        hsl(208, 64%, 38%) 75%, /* Slightly darker #1D809F */
+        hsl(208, 64%, 34%) 80%, /* Darkened #1D809F */
+        transparent 100%),
+      radial-gradient(1250px circle at 100% 100%,
+        hsl(46, 93%, 56%) 15%, /* Converted #efb706 to HSL */
+        hsl(46, 93%, 50%) 35%, /* Slightly darkened #efb706 */
+        hsl(46, 93%, 45%) 75%, /* Further darkened #efb706 */
+        hsl(46, 93%, 40%) 80%, /* More darkened #efb706 */
+        transparent 100%);
+    color: white; 
+}
+
+
+.title-box.py-4.px-4 {
+    padding-top: 3rem !important;
+    padding-bottom: 0rem !important;
+}
+
+.profile img {
+    width: 130px;
+    height: auto;
+    border-radius: 50%; /* Make the image rounded */
+    border: 3px solid #fff; /* Add a white border around the image */
+}
+
+.profile {
+    flex-shrink: 0; /* Prevents the profile image from shrinking */
+}
+
+.info-box {
+    flex: 1; /* Takes remaining space */
+    margin-left: 20px; /* Spacing between profile image and text */
+}
+
+.user-name {
+    color: black;
+    margin-top: 0; /* Remove top margin for user name */
+    margin-bottom: 0.5rem; /* Adjust spacing */
+}
+
+/* Wrapper for the main content to push the footer to the bottom */
+.wrapper, .main-card {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Main content area */
+.main-content {
+    flex: 1; /* Fill remaining vertical space */
+}
+.footerc {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    height: 4rem;
+    width: 4rem;
+    line-height: 4.3rem;
+    font-size: 1.5rem;
+    background-color:#1D809F;
+    transition: background-color 0.15s ease-in-out;
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
+  }
+
+.social-link:hover {
+    background-color: #115164;
+    text-decoration: none;
+  }
+
+.icon-calendar {
+    font-size: 20px; /* Adjust icon size */
+    color: white; /* Icon color */
+    font-weight: bold;
+}
+
+  @media (max-width: 768px) {
+    .profile-header {
+        flex-direction: column; /* Stack items vertically on mobile */
+        align-items: flex-start; /* Align items to the left on mobile */
+    }
+
+    .info-box {
+        margin-top: 10px; /* Space between image and text on mobile */
+        margin-left: 0; /* Reset margin on mobile */
+    }
+
+    .profile {
+        margin-bottom: 10px; /* Space below image on mobile */
+    }
+}
+

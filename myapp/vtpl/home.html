@@ -1,0 +1,61 @@
+<body>
+    <main class="main-container">
+        <div class="content1">
+           <!-- Header-->
+            <header class="masthead d-flex align-items-center" id="header">
+                <div class="container px-4 px-lg-5 text-center">
+                    <h1 class="mb-1">EduPlanner</h1>
+                    <h3 class="mb-5"><em>Your Ultimate Academic Organizer</em></h3>
+                    <a class="btn btn-primary btn-xl" onclick="scrollToSection(event, 'about')">Find Out More</a>
+                </div>
+            </header>
+            <!-- About-->
+            <section class="content-section bg-light" id="about">
+                <div class="container px-4 px-lg-5 text-center">
+                    <div class="row gx-4 gx-lg-5 justify-content-center">
+                        <div class="col-lg-10">
+                            <h2>Your go-to academic planner that helps you optimize your academic success!</h2>
+                            <p class="lead mb-5">Never miss a deadline again with EduPlanner: Successfully manage your tasks and exams.</p>
+                            <a class="btn btn-dark btn-xl" id="startnow-btn" href="#login">Start Now</a>
+                            <a class="btn btn-dark btn-xl" onclick="scrollToSection(event, 'services')">Our Offers</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Services-->
+            <section class="content-section bg-primary text-white text-center" id="services">
+                <div class="container px-4 px-lg-5">
+                    <div class="content-section-heading">
+                        <h3 class="text-secondary mb-0">Services</h3>
+                        <h2 class="mb-5" >What We Offer</h2>
+                    </div>
+                    <div class="row gx-4 gx-lg-5">
+                        <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
+                            <span class="service-icon rounded-circle mx-auto mb-3" style="background-color: hsl(49, 100%, 50%);"><i class="icon-note" style="color: hsl(0, 0%, 0%);"></i></span>
+                            <h4 class="text-center" style="color: hsl(0, 0%, 0%);"><strong>Track Your Tasks</strong></h4>
+                            <p class="text-center text-faded mb-0">Stay organized with task tracking.</p>
+                        </div>
+                        <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
+                            <span class="service-icon rounded-circle mx-auto mb-3" style="background-color: hsl(49, 100%, 50%);"><i class="icon-calendar" style="color: hsl(0, 0%, 0%);"></i></span>
+                            <h4 class="text-center" style="color: hsl(0, 0%, 0%);"><strong>Know Your Exam Schedule</strong></h4>
+                            <p class="text-center text-faded mb-0">Stay updated on exam dates.</p>
+                        </div>
+                        <div class="col-lg-4 col-md-6 mb-5 mb-md-0">
+                            <span class="service-icon rounded-circle mx-auto mb-3" style="background-color: hsl(49, 100%, 50%);"><i class="icon-rocket" style="color: hsl(0, 0%, 0%);"></i></span>
+                            <h4 class="text-center" style="color: hsl(0, 0%, 0%);"><strong>Learn Useful Study Tips</strong></h4>
+                            <p class="text-center text-faded mb-0">Enhance your learning with study tips.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <script>
+        function scrollToSection(event, sectionId) {
+            event.preventDefault(); // Prevent default anchor click behavior
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth' // Smooth scroll
+            });
+        }
+    </script>
+</body>
