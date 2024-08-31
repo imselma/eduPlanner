@@ -1,0 +1,7 @@
+{
+    "require": {
+        "mikecao/flight": "^3.11",
+        "giggsey/libphonenumber-for-php": "^8.13",
+        "firebase/php-jwt": "^6.10"
+    }
+}
