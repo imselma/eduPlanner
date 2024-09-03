@@ -83,7 +83,7 @@ var UserService = {
                 $("input[name='signupemail']").val(''),
                 $("input[name='signuppassword']").val(''),
                 $("input[name='signupnumber']").val('')
-                window.location.href = 'login.html';
+                window.location.hash = '#login';
                 showAlert1("Registration successfull!");            
             },
             error: function(XMLHttpRequest, textStatus, errorThrown) {

@@ -23,7 +23,10 @@ var UserService = {
                     minlength: "Your password must be at least 6 characters long."
                 },
             },
-            submitHandler: function(form){
+            submitHandler: function(form, event){
+
+                event.preventDefault();
+
                 var entity = {
                     email: $("input[name='loginemail']").val(),
                     password: $("input[name='loginpassword']").val()
@@ -58,7 +61,19 @@ var UserService = {
                 localStorage.setItem('first_name', result.first_name);
                 window.location.hash = '#calendar';
                 updateSidebarForAuthenticatedUser();
-                console.log('Authenticated:', isAuthenticated());
+                //console.log('Authenticated:', isAuthenticated());
+
+                 // Once the calendar view is loaded, update the greeting
+                 setTimeout(function() {
+                    var greetingElement = document.getElementById('user-greeting');
+                    if (greetingElement) {
+                        greetingElement.innerHTML = `<b>Welcome, ${result.first_name}! Add your upcoming exams and tasks!</b>`;
+                        greetingElement.style.fontSize = '35px';
+                    }
+                }, 100);
+
+                // Clear the URL query parameters, if I go back button and than login again --> not to have this http://localhost/eduPlanner/myApp/?loginemail=aminameric3%40gmail.com&loginpassword=aminam2103#login
+                window.history.pushState({}, document.title, window.location.pathname + "#calendar");
             },
             error: function(result) {
                 
