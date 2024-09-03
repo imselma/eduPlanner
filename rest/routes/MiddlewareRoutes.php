@@ -9,7 +9,8 @@ Flight::route('/*', function() {
     if(
         strpos(Flight::request()->url, '/login') === 0 ||
         strpos(Flight::request()->url, '/register') === 0 ||
-        strpos(Flight::request()->url, '/connection-check') === 0){
+        strpos(Flight::request()->url, '/connection-check') === 0 )
+        {
 
             return TRUE;
         } else {
@@ -18,7 +19,7 @@ Flight::route('/*', function() {
                 if(!$token){
                    Flight::json(['message' => "Missing authentication header!"], 401);
                 }
-                $decoded_token = JWT::decode($token, new Key(Config::JWT_SECRET(), 'HS256')); 
+                $decoded_token = JWT::decode($token, new Key(JWT_SECRET, 'HS256')); 
           
                 //Seting the token and user from decoded token globaly, so that we are able to use it in all other routes.
                 Flight::set('user', $decoded_token->user);

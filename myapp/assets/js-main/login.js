@@ -56,7 +56,9 @@ var UserService = {
                 localStorage.setItem('users_id', result.id);
                 localStorage.setItem('token', result.token);
                 localStorage.setItem('first_name', result.first_name);
-                window.location.href = 'calendar.html';
+                window.location.hash = '#calendar';
+                updateSidebarForAuthenticatedUser();
+                console.log('Authenticated:', isAuthenticated());
             },
             error: function(result) {
                 
