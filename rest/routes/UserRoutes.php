@@ -7,6 +7,31 @@ Flight::route('GET /connection-check', function(){
     $dao = new BaseDao("users");
 });
 
+/**
+ * @OA\Post(
+ *      path="/register",
+ *      tags={"users"},
+ *      summary="Add user data to the database.",
+ *      @OA\Response(
+ *           response=200,
+ *           description="User added successfully or failure message."
+ *      ),
+ *      @OA\RequestBody(
+ *          description="User data payload",
+ *          @OA\JsonContent(
+ *              required={"user_type","first_name","last_name","username","email", "password", "phone_number"},
+ *              @OA\Property(property="user_type", type="string", example="user", description="Update user type"),
+ *              @OA\Property(property="first_name", type="string", example="Joe", description="User's first name"),
+ *              @OA\Property(property="last_name", type="string", example="Smith", description="User's last name"),
+ *              @OA\Property(property="username", type="string", example="joes", description="Username"),
+ *              @OA\Property(property="email", type="string", example="example@user.com", description="User's email address"),
+ *              @OA\Property(property="password", type="string", example="user12345", description="User's password"),
+ *              @OA\Property(property="phone_number", type="string", example="+38761528067", description="User's phone number")
+ *          )
+ *      )
+ * )
+ */
+
 Flight::route("POST /register", function() {
    $payload = Flight::request()->data->getData(); // Getting data from the request payload.
    $userService = new UserService(); // Making an instance of UserService
@@ -20,7 +45,25 @@ Flight::route("POST /register", function() {
    }
 });
 
-   Flight::route("POST /login", function() {
+/**
+ * @OA\Post(
+ *      path="/login",
+ *      tags={"users"},
+ *      summary="Log in user to account using email and password.",
+ *      @OA\Response(
+ *           response=200,
+ *           description="User data and JWT."
+ *      ),
+ *      @OA\RequestBody(
+ *          description="Credentials",
+ *          @OA\JsonContent(
+ *              @OA\Property(property="email", type="string", example="example@user.com", description="User's email address"),
+ *              @OA\Property(property="password", type="string", example="user12345", description="User's password"),
+ *          )
+ *      )
+ * )
+*/ 
+Flight::route("POST /login", function() {
 
          $payload = Flight::request()->data->getData();
          $userService = new UserService();
@@ -62,7 +105,7 @@ Flight::route("POST /register", function() {
          if(!$token){
             Flight::json(['message' => "Missing authentication header!"], 401);
          }
-         $decoded_token = JWT::decode($token, new Key(Config::JWT_SECRET(), 'HS256')); //If I add something it would fail because I am trying to decode jwt token signed with one secret, with another
+         $decoded_token = JWT::decode($token, new Key(JWT_SECRET, 'HS256')); //If I add something it would fail because I am trying to decode jwt token signed with one secret, with another
 
          Flight::json([
             'jwt_decoded' => $decoded_token,

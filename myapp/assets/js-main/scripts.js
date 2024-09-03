@@ -16,6 +16,16 @@ window.addEventListener('DOMContentLoaded', event => {
         menuToggle.classList.toggle('active');
     })
 
+    const sidebarNavItems = document.querySelectorAll('#sidebar-wrapper .sidebar-nav-item a');
+    // Close sidebar when a menu item is clicked
+    sidebarNavItems.forEach(item => {
+        item.addEventListener('click', event => {
+            sidebarWrapper.classList.remove('active');
+            _toggleMenuIcon();
+            menuToggle.classList.remove('active');
+        });
+    });
+
     // Closes responsive menu when a scroll trigger link is clicked
     var scrollTriggerList = [].slice.call(document.querySelectorAll('#sidebar-wrapper .js-scroll-trigger'));
     scrollTriggerList.map(scrollTrigger => {

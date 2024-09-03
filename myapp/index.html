@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -9,55 +10,62 @@
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     <!-- Simple line icons-->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css"
+        rel="stylesheet" />
     <!-- Google fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic"
+        rel="stylesheet" type="text/css" />
     <!-- Page CSS -->
     <link href="assets/css-main/styles.css" rel="stylesheet" />
     <link href="assets/css-main/startnow.css" rel="stylesheet" />
-
     <!-- SPApp CSS -->
     <link href="assets/css-main/jQuerySPApp.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+
 </head>
+
 <body id="page-top">
     <!-- Navigation-->
     <a class="menu-toggle rounded" href="#"><i class="fas fa-bars"></i></a>
     <nav id="sidebar-wrapper">
         <ul class="sidebar-nav">
-            <li class="sidebar-brand"><a href="#home"><b>EduPlanner Menu</b></a></li>
+            <li class="sidebar-brand"><a href="#home"><b>EduPlanner</b></a></li>
             <li class="sidebar-nav-item" style="margin: 0;">
                 <a href="#home"
-                   onmouseover="this.style.color='black'; this.style.fontWeight='bold'; this.style.backgroundColor='rgba(255, 255, 255, 0.2)';"
-                   onmouseout="this.style.color='white'; this.style.fontWeight='bold'; this.style.backgroundColor='transparent';">
-                   Home
+                    onmouseover="this.style.color='black'; this.style.fontWeight='bold'; this.style.backgroundColor='rgba(255, 255, 255, 0.2)';"
+                    onmouseout="this.style.color='white'; this.style.fontWeight='bold'; this.style.backgroundColor='transparent';">
+                    Home
                 </a>
             </li>
             <li class="sidebar-nav-item" style="margin: 0;">
-                <a onclick="scrollToSection(event, 'about')" 
-                   onmouseover="this.style.color='black'; this.style.fontWeight='bold'; this.style.backgroundColor='rgba(255, 255, 255, 0.2)';"
-                   onmouseout="this.style.color='white'; this.style.fontWeight='bold'; this.style.backgroundColor='transparent';">
-                   About
+                <a onclick="scrollToSection(event, 'about')"
+                    onmouseover="this.style.color='black'; this.style.fontWeight='bold'; this.style.backgroundColor='rgba(255, 255, 255, 0.2)';"
+                    onmouseout="this.style.color='white'; this.style.fontWeight='bold'; this.style.backgroundColor='transparent';">
+                    About
                 </a>
             </li>
             <li class="sidebar-nav-item" style="margin: 0;">
                 <a onclick="scrollToSection(event, 'services')"
-                   onmouseover="this.style.color='black'; this.style.fontWeight='bold'; this.style.backgroundColor='rgba(255, 255, 255, 0.2)';"
-                   onmouseout="this.style.color='white'; this.style.fontWeight='bold'; this.style.backgroundColor='transparent';">
-                   Services
+                    onmouseover="this.style.color='black'; this.style.fontWeight='bold'; this.style.backgroundColor='rgba(255, 255, 255, 0.2)';"
+                    onmouseout="this.style.color='white'; this.style.fontWeight='bold'; this.style.backgroundColor='transparent';">
+                    Services
                 </a>
             </li>
             <li class="sidebar-nav-item" style="margin: 0;">
                 <a onclick="scrollToSection(event, 'socials')"
-                   onmouseover="this.style.color='black'; this.style.fontWeight='bold'; this.style.backgroundColor='rgba(255, 255, 255, 0.2)';"
-                   onmouseout="this.style.color='white'; this.style.fontWeight='bold'; this.style.backgroundColor='transparent';">
-                   Socials
+                    onmouseover="this.style.color='black'; this.style.fontWeight='bold'; this.style.backgroundColor='rgba(255, 255, 255, 0.2)';"
+                    onmouseout="this.style.color='white'; this.style.fontWeight='bold'; this.style.backgroundColor='transparent';">
+                    Socials
                 </a>
             </li>
             <li class="sidebar-nav-item" style="margin: 0;">
                 <a href="#login"
-                   onmouseover="this.style.color='black'; this.style.fontWeight='bold'; this.style.backgroundColor='rgba(255, 255, 255, 0.2)';"
-                   onmouseout="this.style.color='white'; this.style.fontWeight='bold'; this.style.backgroundColor='transparent';">
-                   Start Now
+                    onmouseover="this.style.color='black'; this.style.fontWeight='bold'; this.style.backgroundColor='rgba(255, 255, 255, 0.2)';"
+                    onmouseout="this.style.color='white'; this.style.fontWeight='bold'; this.style.backgroundColor='transparent';">
+                    Start Now
                 </a>
             </li>
         </ul>
@@ -67,31 +75,37 @@
         <section id="home" data-load="home.html"></section>
         <section id="login" data-load="login.html"></section>
         <section id="signup" data-load="signup.html"></section>
-     </main>
- <!-- Footer-->
-<footer class="footer text-center" style="background-color: hsl(0, 0%, 100%); padding: 10px 0;" id="socials">
-    <div class="container px-4 px-lg-5">
-        <ul class="list-inline mb-2" style="margin: 0;">
-            <li class="list-inline-item">
-                <a class="social-link rounded-circle text-black mx-2" href="https://www.linkedin.com/in/selma-im%C5%A1irovi%C4%87-5b0089247/" style="background-color: hsl(49, 100%, 50%);">
-                    <i class="icon-social-linkedin"></i>
-                </a>
-            </li>
-            <li class="list-inline-item">
-                <a class="social-link rounded-circle text-black mx-2" href="https://github.com/imselma" style="background-color: hsl(49, 100%, 50%);">
-                    <i class="icon-social-github"></i>
-                </a>
-            </li>
-            <li class="list-inline-item">
-                <a class="social-link rounded-circle text-black mx-2" href="mailto:selmaimsirovic28@gmail.com" style="background-color: hsl(49, 100%, 50%);">
-                    <i class="icon-envelope"></i>
-                </a>
-            </li>
-        </ul>
-        
-        <p class="text-black small mb-0" style="margin: 0;">Made with ❤️ by EduPlanner 2024</p>
-    </div>
-</footer>
+        <section id="calendar" data-load="calendar.html"></section>
+        <section id="profile" data-load="profile.html"></section>
+    </main>
+    <!-- Footer-->
+    <footer class="footer text-center" style="background-color: hsl(0, 0%, 100%); padding: 10px 0;" id="socials">
+        <div class="container px-4 px-lg-5">
+            <ul class="list-inline mb-2" style="margin: 0;">
+                <li class="list-inline-item">
+                    <a class="social-link rounded-circle text-black mx-2"
+                        href="https://www.linkedin.com/in/selma-im%C5%A1irovi%C4%87-5b0089247/"
+                        style="background-color: hsl(49, 100%, 50%);">
+                        <i class="icon-social-linkedin"></i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="social-link rounded-circle text-black mx-2" href="https://github.com/imselma"
+                        style="background-color: hsl(49, 100%, 50%);">
+                        <i class="icon-social-github"></i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="social-link rounded-circle text-black mx-2" href="mailto:selmaimsirovic28@gmail.com"
+                        style="background-color: hsl(49, 100%, 50%);">
+                        <i class="icon-envelope"></i>
+                    </a>
+                </li>
+            </ul>
+
+            <p class="text-black small mb-0" style="margin: 0;">Made with ❤️ by EduPlanner 2024</p>
+        </div>
+    </footer>
 
 
     <!-- Scroll to Top Button-->
@@ -106,16 +120,51 @@
     <script src="assets/js-main/jquery.validate.min.js"></script>
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    
+
     <script>
+     function isAuthenticated() {
+             return localStorage.getItem('token') !== null;
+    }
+
+    function addSidebarListener() {
+        const sidebarNavItems = document.querySelectorAll('#sidebar-wrapper .sidebar-nav-item a');
+        const sidebarWrapper = document.getElementById('sidebar-wrapper');
+        // Close sidebar when a menu item is clicked
+        sidebarNavItems.forEach(item => {
+            item.addEventListener('click', event => {
+                sidebarWrapper.classList.remove('active');
+                menuToggle.classList.remove('active');
+            });
+        });
+    }
+
+    function updateSidebarForAuthenticatedUser() {
+             var sidebar = document.querySelector('.sidebar-nav');
+             if (sidebar) {
+                 sidebar.innerHTML = `
+                     <li class="sidebar-brand" style="color:white; font-weight:bold;"><b>EduPlanner</b></li>
+                     <li class="sidebar-nav-item"><a href="#calendar">Calendar</a></li>
+                     <li class="sidebar-nav-item"><a href="#profile">Profile</a></li>
+                     <li class="sidebar-nav-item"><a href="#studytips">Study Tips</a></li>
+                 `;
+                 addSidebarListener();
+        }
+    }
+
     $(document).ready(function () {
-            var app = $.jQuerySPApp({ defaultView: "home" }); //initialize page
+            // Initialize the SPApp
+            var app = $.jQuerySPApp({ defaultView: "home" });
 
             // Define routes
-            app.route({ view: 'home', load: 'home.html' });
-            app.route({ view: 'login', load: 'login.html' });
-            app.route({ view: 'signup', load: 'signup.html' });
-
+            if(isAuthenticated()){
+                app.route({ view: 'calendar', load: 'calendar.html' });
+                app.route({ view: 'profile', load: 'profile.html' });
+            }
+            else{
+                app.route({ view: 'home', load: 'home.html' });
+                app.route({ view: 'login', load: 'login.html' });
+                app.route({ view: 'signup', load: 'signup.html' });
+            }
             // Run the app
             app.run();
         });
@@ -130,5 +179,7 @@
             });
         }
     </script>
+
 </body>
+
 </html>

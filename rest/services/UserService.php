@@ -77,5 +77,10 @@ class UserService extends BaseService{
          }
        }
      } 
+
+    
+    public function getUserById($id) {
+        return $this->dao->getUserById($id);
+    }
 }
 ?>
