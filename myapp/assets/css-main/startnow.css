@@ -41,7 +41,7 @@
   margin-bottom: 2rem !important
 }
 
-.custom-alert-overlay {
+.custom-alert-overlay, .custom-alert-overlay1, .custom-alert-overlay2 {
   display: none; 
   position: fixed;
   top: 0;
@@ -52,7 +52,7 @@
   z-index: 999;
 }
 
-.custom-alert {
+.custom-alert, .custom-alert1, .custom-alert2 {
   display: none; 
   position: fixed;
   top: 20px; 
@@ -69,7 +69,7 @@
   max-width: 500px;
 }
 
-.custom-alert button {
+.custom-alert button, .custom-alert1 button,.custom-alert2 button  {
   padding: 10px 20px;
   background-color: #dbb122;
   border: none;
@@ -80,7 +80,7 @@
   font-size: 16px;
 }
 
-.custom-alert button:hover {
+.custom-alert button:hover, .custom-alert1 button:hover, .custom-alert2 button:hover {
   background-color: hsl(46, 93%, 45%);
 }
 

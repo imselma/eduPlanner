@@ -116,6 +116,28 @@ function prev_year(event) {
     init_calendar(date);
 }
 
+// Event handler for when a date is clicked
+function date_click(event) {
+    $(".events-container").show(250);
+    $("#dialog").hide(250);
+    $(".active-date").removeClass("active-date");
+    $(this).addClass("active-date");
+
+    // Get the selected day, month, and year
+    var selectedDay = event.data.day;
+    var selectedMonth = months.indexOf(event.data.month) + 1; // Convert month to numeric value
+    var selectedYear = $(".year").text(); // Get the current year
+
+    // Format the date as YYYY-MM-DD
+    var selectedDate = selectedYear + "-" + (selectedMonth < 10 ? "0" + selectedMonth : selectedMonth) + "-" + (selectedDay < 10 ? "0" + selectedDay : selectedDay);
+
+    // Store the selected date in the hidden input field
+    $("#eventdate").val(selectedDate);
+
+    show_events(event.data.events, event.data.month, event.data.day);
+}
+
+
 // Event handler for clicking the new event button
 function new_event(event) {
     // if a date isn't selected then do nothing
@@ -181,31 +203,7 @@ function show_events(events, month, day) {
     $(".events-container").empty();
     $(".events-container").show(250);
 
-    // If there are no events for this date, notify the user
-    if (events.length === 0) {
-        var event_card = $("<div class='event-card'></div>");
-        var event_name = $("<div class='event-name'>There are no events planned for " + month + " " + day + ".</div>");
-        $(event_card).css({ "border-left": "10px solid #FF1744" });
-        $(event_card).append(event_name);
-        $(".events-container").append(event_card);
-    } else {
-        // Go through and add each event as a card to the events container
-        for (var i = 0; i < events.length; i++) {
-            var event_card = $("<div class='event-card'></div>");
-            var event_name = $("<div class='event-name'>" + events[i]["occasion"] + ":</div>");
-            var event_details = $("<div class='event-details'>" + events[i]["details"] + "</div>");
-
-            if (events[i]["cancelled"] === true) {
-                $(event_card).css({
-                    "border-left": "10px solid #FF1744"
-                });
-                event_details = $("<div class='event-details event-cancelled'>Cancelled</div>");
-            }
-
-            $(event_card).append(event_name).append(event_details);
-            $(".events-container").append(event_card);
-        }
-    }
+    ExamService.displayExams();
 }
 
 // Checks if a specific date has any events

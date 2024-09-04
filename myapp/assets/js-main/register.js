@@ -1,4 +1,4 @@
-var UserService = {
+var UserService1 = {
     init: function() {
         //Validation for registartion form
         $("#signup-form").validate({
@@ -57,7 +57,7 @@ var UserService = {
                     password: $("input[name='signuppassword']").val(),
                     phone_number: $("input[name='signupnumber']").val()
                 };
-                UserService.register(entity); //Calling the function for registering user with the payload provided
+                UserService1.register(entity); //Calling the function for registering user with the payload provided
             }
 
         });
@@ -113,5 +113,5 @@ var UserService = {
 };
 
 $(document).ready(function() {
-    UserService.init();
+    UserService1.init();
 });

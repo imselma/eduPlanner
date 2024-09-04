@@ -1,6 +1,7 @@
 <bod>
     <link rel="stylesheet" href="assets/calendar/css/style.css">
     <link href="assets/css-main/styles.css" rel="stylesheet" />
+    <link href="assets/css-main/startnow.css" rel="stylesheet" />
     <main>
         <section class="ftco-section" id="calendar">
             <div class="container">
@@ -64,15 +65,60 @@
                             <div class="dialog" id="dialog">
                                 <h2 class="dialog-header"> Add New Event </h2>
                                 <form class="form" id="form">
+                                    <!--Dropdown button-->
+                                    <div class="d-flex justify-content-center" style="margin-top: 10%;">
+                                        <div class="btn-group">
+                                            <button class="btn btn-secondary dropdown-toggle" type="button"
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                                style="color:white; background-color: #1D809F; border-radius: 25px; border-color: #1D809F; font-size: smaller;">
+                                                EVENT TYPE
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"
+                                                id="event-type-dropdown">
+                                                <a class="dropdown-item" data-type="Task">Task</a>
+                                                <a class="dropdown-item" data-type="Exam">Exam</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--Form elements-->
                                     <div class="form-container" align="center">
+                                        <!-- Hidden input for storing the selected date -->
+                                        <input type="hidden" id="eventdate" name="eventdate">
+                                        <!--Name-->
                                         <label class="form-label" id="valueFromMyButton" for="e-name">Event name</label>
-                                        <input class="input" type="text" id="e-name" name="event-name" maxlength="36">
-                                        <label class="form-label" id="valueFromMyButton" for="e-details">Details</label>
-                                        <input class="input" type="text" id="e-details" name="event-details">
+                                        <input class="input" type="text" id="e-name" name="eventname" maxlength="36">
+                                        <!--Description-->
+                                        <label class="form-label" id="valueFromMyButton"
+                                            for="e-place">Event Location</label>
+                                        <input class="input" type="text" id="e-details" name="eventplace">
+                                        <!-- Time input for HH:MM -->
+                                        <label class="form-label" id="valueFromMyButton" for="e-time">Event Time</label>
+                                        <input class="input time-input" type="time" id="e-time" name="eventtime"
+                                            style="margin-bottom: 10px;">
+                                        <!--Buttons-->
                                         <input type="button" value="Cancel" class="button" id="cancel-button">
-                                        <input type="button" value="OK" class="button button-white" id="ok-button">
+                                        <button type="submit" class="button button-white" id="ok-button" style="margin-top: 10px;">OK</button>
+
                                     </div>
                                 </form>
+                            </div>
+                            <!-- Overlay for background fade -->
+                            <div id="custom-alert-overlay2" class="custom-alert-overlay"></div>
+
+                            <!-- Custom alert box -->
+                            <div id="custom-alert2" class="custom-alert">
+                                <p class="my-5 display-5 fw-bold ls-tight small-white-text" id="alert-message2"></p>
+                                <button id="alert-close2">OK</button>
+                            </div>
+
+                            <!-- Overlay for background fade -->
+                            <div id="custom-alert-overlay3" class="custom-alert-overlay"></div>
+
+                            <!-- Custom alert box -->
+                            <div id="custom-alert3" class="custom-alert">
+                                <p class="my-5 display-5 fw-bold ls-tight small-white-text" id="alert-message3"></p>
+                                <button id="alert-close3" style="margin-right: 10px;">Cancel</button>
+                                <button id="alert-confirm-delete">Delete</button> <!-- Confirm delete button -->
                             </div>
                         </div>
                     </div>
@@ -94,4 +140,14 @@
         };
 
     </script>
-</bod>
+        <!--JQuery-->
+        <script src="assets/js-main/jquery.min.js"></script>
+            <!--validation script-->
+    <script src="assets/js-main/jquery.validate.min.js"></script>
+    <!--Constants-->
+  <script src="utils/constants.js"></script>
+  <!--Login.js-->
+  <script src="assets/js-main/exams.js"></script> 
+  <!--Popup.js-->
+  <script src="assets/js-main/popup.js"></script> 
+    </body>

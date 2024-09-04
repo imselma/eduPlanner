@@ -11,15 +11,20 @@ class ExamService extends BaseService{
 
         $exam = [
             'exam_name' => $data['exam_name'],
-            'exam_date_time' => $data['exam_date_time'],
+            'exam_date' => $data['exam_date'],
             'exam_place' =>$data['exam_place'],
-            'user_id' => $data['user_id']
+            'user_id' => $data['user_id'],
+            'exam_time' => $data['exam_time']
         ];
         return $this->add($exam);//calling the add() method on previous instantiated BaseDao object 
     }
 
     public function getExamByUserId($user_id) {
         return $this->dao->getExamByUserId($user_id); 
+    }
+
+    public function getExamByUserIdAndDate($user_id, $exam_date) {
+        return $this->dao->getExamByUserIdAndDate($user_id, $exam_date); 
     }
 }
 ?>
