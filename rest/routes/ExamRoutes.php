@@ -117,6 +117,35 @@ Flight::route("GET /getExamById/@id", function($id){
 });
 
 /**
+     * @OA\Get(
+     *      path="/getExamByUserIdAnd",
+     *      tags={"exams"},
+     *      summary="Get exam by user id.",
+     *      security={
+     *         {"ApiKey": {}}
+     *      },
+     *      @OA\Response(
+     *           response=200,
+     *           description="Get exam data or 500 status code exception otherwise"
+     *      )
+     * )
+     */
+
+     Flight::route("POST /getExamByUserIdAndDate", function(){
+
+          $examService = new ExamService();
+          $requestData = Flight::request()->data->getData();
+          $userId = Flight::get('user')->id; 
+          $date = $requestData['exam_date']; 
+       
+          $result = $examService->getExamByUserIdAndDate($userId, $date);
+          
+          Flight::json([
+              'result' => $result
+          ]);
+      });
+
+/**
     * @OA\Put(
     *     path="/editExam/{id}",
     *     tags={"exams"},

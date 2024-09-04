@@ -54,7 +54,7 @@ var UserService = {
 
                 $("input[name='loginemail']").val(''),
                 $("input[name='loginpassword']").val('')
-               // localStorage.setItem('current_user', JSON.stringify(result));
+                localStorage.setItem('current_user', JSON.stringify(result));
                 localStorage.setItem('user_type', result.user_type);
                 localStorage.setItem('users_id', result.id);
                 localStorage.setItem('token', result.token);

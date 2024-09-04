@@ -8232,6 +8232,7 @@ h1, h2, h3, h4, h5,
   padding: 20px 0;
   max-width: 100%;
   display: flex;
+  flex-direction: column;
   background: #fff;
   border: none !important;
   margin: 20px;
@@ -8244,7 +8245,7 @@ h1, h2, h3, h4, h5,
       margin: 0;
       background: #e6e6e6; } }
 
-.event-count, .event-name, .event-cancelled {
+.event-count, .event-name, .event-details, .event-cancelled {
   display: inline;
   padding: 0 10px;
   font-size: 1rem; }
@@ -8256,7 +8257,13 @@ h1, h2, h3, h4, h5,
 .event-name {
   text-align: left; 
   color: #e0a800;
-font-weight: bold;}
+  font-weight: bold;}
+  
+  .event-details{
+    text-align: left; 
+    font-weight: normal; 
+    color: black; 
+  }
 
 .event-cancelled {
   color: #cd4dcc;
@@ -8480,7 +8487,7 @@ font-weight: bold;}
   font-weight: bold; }
 
 .form-container {
-  margin-top: 25%; }
+  margin-top: 10%; }
 
 .form-label {
   text-transform: uppercase;
@@ -8508,3 +8515,9 @@ font-weight: bold;}
 
 .error-input {
   border-color: #1D809F; }
+
+input[type="time"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    background-color: #1D809F;
+  }

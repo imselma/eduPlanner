@@ -12,8 +12,9 @@ class TaskService extends BaseService{
         $task = [
             'task_name' => $data['task_name'],
             'task_description' => $data['task_description'],
-            'task_deadline' => $data['task_deadline'],
-            'user_id' => $data['user_id']
+            'task_date' => $data['task_date'],
+            'user_id' => $data['user_id'],
+            'task_time' => $data['exam_time']
         ];
         return $this->add($task);//calling the add() method on previous instantiated BaseDao object 
     }
