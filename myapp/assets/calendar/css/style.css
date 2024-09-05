@@ -8521,3 +8521,29 @@ input[type="time"]::-webkit-inner-spin-button {
     margin: 0;
     background-color: #1D809F;
   }
+
+#logout-button {
+  border: none;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 5px;
+  width: 80px;
+  height: 50px;
+  text-align: center;
+  color: #fff;
+  background: rgba(52, 58, 64, 0.5);
+  line-height: 50px;
+  z-index: 999;
+}
+
+#logout-button:focus, #logout-button:hover {
+  color: #fff;
+}
+
+#logout-button:hover {
+  background: #343a40;
+}
+

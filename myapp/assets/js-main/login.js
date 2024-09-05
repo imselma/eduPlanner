@@ -1,5 +1,10 @@
 var UserService = {
     init: function() {
+    
+         $('#logout-button').on('click', function(e) {
+            e.preventDefault(); 
+            UserService.logout(); 
+        });
 
         //Validation for login form
         $("#login-form").validate({
@@ -61,9 +66,7 @@ var UserService = {
                 localStorage.setItem('first_name', result.first_name);
                 window.location.hash = '#calendar';
                 updateSidebarForAuthenticatedUser();
-                //console.log('Authenticated:', isAuthenticated());
 
-                 // Once the calendar view is loaded, update the greeting
                  setTimeout(function() {
                     var greetingElement = document.getElementById('user-greeting');
                     if (greetingElement) {
@@ -77,14 +80,44 @@ var UserService = {
             },
             error: function(result) {
                 
-                console.error("Login failed:", result); // Log the full error response
+                console.error("Login failed:", result); 
                 showAlert("Login failed due to wrong credentials!");
                 $("input[name='loginemail']").val(''),
                 $("input[name='loginpassword']").val('')
             }
             
         });
-    }
+    },
+
+    logout: function(){
+        $.ajax({
+            url: Constants.get_api_base_url() + "logout",
+            type: "POST",
+            contentType: "application/json",
+            dataType: "json",
+            beforeSend: function(xhr) {
+                if(localStorage.getItem('current_user')){
+                  xhr.setRequestHeader("Authentication", localStorage.getItem('token'));
+                }
+              },
+            success: function(result) {
+                localStorage.removeItem('token');
+                localStorage.removeItem('current_user');
+                localStorage.removeItem('first_name');
+                localStorage.removeItem('user_type');
+                localStorage.removeItem('users_id');
+                
+
+                window.location.hash = '#home';
+                updateSidebarForUnauthenticatedUser();
+            },
+            error: function(result) {
+                console.error("Logout failed:", result); 
+                showAlert("Logout failed!");
+            }
+            
+        });
+    },
 };
 
 $(document).ready(function() {

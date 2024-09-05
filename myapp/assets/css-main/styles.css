@@ -10839,7 +10839,7 @@ html {
 
 .scroll-to-top {
   position: fixed;
-  right: 15px;
+  left: 15px;
   bottom: 15px;
   display: none;
   width: 50px;
@@ -10862,13 +10862,13 @@ html {
 #sidebar-wrapper {
   position: fixed;
   z-index: 2;
-  right: 0;
+  left: 0; 
   width: 250px;
   height: 100%;
   transition: all 0.4s ease 0s;
-  transform: translateX(250px);
+  transform: translateX(-250px);
   background: #1D809F;
-  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  border-right: 1px solid rgba(255, 255, 255, 0.1); 
 }
 
 .sidebar-nav {
@@ -10878,6 +10878,7 @@ html {
   margin: 0;
   padding: 0;
   list-style: none;
+  text-align: left;
 }
 
 .sidebar-nav li.sidebar-nav-item a {
@@ -10885,6 +10886,7 @@ html {
   text-decoration: none;
   color: #fff;
   padding: 15px;
+  text-align: left;
 }
 
 .sidebar-nav li a:hover {
@@ -10906,6 +10908,8 @@ html {
   padding-top: 15px;
   padding-bottom: 15px;
   padding-left: 15px;
+  padding-right: 15px;
+  text-align: right; 
 }
 
 .sidebar-nav > .sidebar-brand a {
@@ -10919,14 +10923,14 @@ html {
 }
 
 #sidebar-wrapper.active {
-  right: 250px;
+  transform: translateX(0);
   width: 250px;
   transition: all 0.4s ease 0s;
 }
 
 .menu-toggle {
   position: fixed;
-  right: 15px;
+  left: 15px;
   top: 15px;
   width: 50px;
   height: 50px;
@@ -11004,7 +11008,7 @@ footer.footer .social-link:hover {
   height: auto;
   padding-top: 8rem;
   padding-bottom: 8rem;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%), url("../img/bg-masthead.jpg");
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%), url("../img/background.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;

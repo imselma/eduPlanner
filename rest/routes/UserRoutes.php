@@ -98,7 +98,7 @@ Flight::route("POST /login", function() {
 
    /*User needs to be authenticated to triger some routes. In order to force that we use security and it will be secured using authentication mechanism*/
 
-   Flight::route('POST /authLogout', function() {
+   Flight::route('POST /logout', function() {
 
       try{
          $token = Flight::request()->getHeader("Authentication");

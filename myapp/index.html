@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic"
         rel="stylesheet" type="text/css" />
     <!-- Page CSS -->
-    <link href="assets/css-main/styles.css" rel="stylesheet" />
+    <link href="assets/css-main/styles.css?v=1.0" rel="stylesheet" />
     <link href="assets/css-main/startnow.css" rel="stylesheet" />
     <!-- SPApp CSS -->
     <link href="assets/css-main/jQuerySPApp.css" rel="stylesheet" />
@@ -109,7 +109,7 @@
 
 
     <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    <a class="scroll-to-top rounded" href="#home"><i class="fas fa-angle-up"></i></a>
     <!-- Core theme JS-->
     <script src="assets/js-main/scripts.js"></script>
     <!--JQuery-->
@@ -131,7 +131,7 @@
         app.route({ view: 'calendar', load: 'calendar.html' });
         app.route({ view: 'profile', load: 'profile.html' });
         app.route({ view: 'studytips', load: 'studytips.html' });
-        updateSidebarForAuthenticatedUser(); // Update sidebar for authenticated users
+        updateSidebarForAuthenticatedUser(); 
     } else {
         app.route({ view: 'home', load: 'home.html' });
         app.route({ view: 'login', load: 'login.html' });
@@ -154,6 +154,21 @@ function updateSidebarForAuthenticatedUser() {
             <li class="sidebar-nav-item"><a href="#calendar">Calendar</a></li>
             <li class="sidebar-nav-item"><a href="#profile">Profile</a></li>
             <li class="sidebar-nav-item"><a href="#studytips">Study Tips</a></li>
+        `;
+        addSidebarListener();
+    }
+}
+
+function updateSidebarForUnauthenticatedUser() {
+    var sidebar = document.querySelector('.sidebar-nav');
+    if (sidebar) {
+        sidebar.innerHTML = `
+            <li class="sidebar-brand" style="color:white; font-weight:bold;"><b>EduPlanner</b></li>
+            <li class="sidebar-nav-item"><a href="#home">Home</a></li>
+            <li class="sidebar-nav-item"><a href="#about">About</a></li>
+            <li class="sidebar-nav-item"><a href="#services">Services</a></li>
+            <li class="sidebar-nav-item"><a href="#socials">Socials</a></li>
+            <li class="sidebar-nav-item"><a href="#login">Start Now</a></li>
         `;
         addSidebarListener();
     }

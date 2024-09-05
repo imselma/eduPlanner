@@ -1,7 +1,20 @@
 <bod>
+
+    <head>
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Simple line icons-->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css"
+            rel="stylesheet" />
+    </head>
+
     <link rel="stylesheet" href="assets/calendar/css/style.css">
     <link href="assets/css-main/styles.css" rel="stylesheet" />
     <link href="assets/css-main/startnow.css" rel="stylesheet" />
+
+    <!-- Logout Button -->
+    <button  id="logout-button">Log Out</button>
+    </div>
     <main>
         <section class="ftco-section" id="calendar">
             <div class="container">
@@ -88,8 +101,8 @@
                                         <label class="form-label" id="valueFromMyButton" for="e-name">Event name</label>
                                         <input class="input" type="text" id="e-name" name="eventname" maxlength="36">
                                         <!--Description-->
-                                        <label class="form-label" id="valueFromMyButton"
-                                            for="e-place">Event Details</label>
+                                        <label class="form-label" id="valueFromMyButton" for="e-place">Event
+                                            Details</label>
                                         <input class="input" type="text" id="e-details" name="eventplace">
                                         <!-- Time input for HH:MM -->
                                         <label class="form-label" id="valueFromMyButton" for="e-time">Event Time</label>
@@ -97,7 +110,8 @@
                                             style="margin-bottom: 10px;">
                                         <!--Buttons-->
                                         <input type="button" value="Cancel" class="button" id="cancel-button">
-                                        <button type="submit" class="button button-white" id="ok-button" style="margin-top: 10px;">OK</button>
+                                        <button type="submit" class="button button-white" id="ok-button"
+                                            style="margin-top: 10px;">OK</button>
 
                                     </div>
                                 </form>
@@ -120,7 +134,7 @@
                                 <button id="alert-close3" style="margin-right: 10px;">Cancel</button>
                                 <button id="alert-confirm-delete">Delete</button> <!-- Confirm delete button -->
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -141,17 +155,20 @@
         };
 
     </script>
-        <!--JQuery-->
-        <script src="assets/js-main/jquery.min.js"></script>
-            <!--validation script-->
+    <!--JQuery-->
+    <script src="assets/js-main/jquery.min.js"></script>
+    <!--validation script-->
     <script src="assets/js-main/jquery.validate.min.js"></script>
     <!--Constants-->
-  <script src="utils/constants.js"></script>
-  <!--Exams.js-->
-  <script src="assets/js-main/exams.js"></script> 
-  <!--Popup.js-->
-  <script src="assets/js-main/popup.js"></script> 
-  <!--Tasks.js-->
-  <script src="assets/js-main/tasks.js"></script> 
-  <script src="assets/js-main/examTask.js"></script>
-</body>
+    <script src="utils/constants.js"></script>
+    <!--Exams.js-->
+    <script src="assets/js-main/exams.js"></script>
+    <!--Popup.js-->
+    <script src="assets/js-main/popup.js"></script>
+    <!--Tasks.js-->
+    <script src="assets/js-main/tasks.js"></script>
+    <script src="assets/js-main/exams.js"></script>
+    <script src="assets/js-main/examTask.js"></script>
+    <script src="assets/js-main/login.js"></script>
+
+    </body>
