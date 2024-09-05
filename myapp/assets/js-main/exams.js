@@ -82,7 +82,8 @@ var ExamService = {
             },
             success: function(result) {
                 showAlert2("Exam deleted successfully!");
-                //ExamService.displayExams(); // Refresh the exam list after deletion
+                var selectedDate = $("input[name='eventdate']").val(); 
+                TaskExamService.displayTasksExams(selectedDate);
             },
             error: function(XMLHttpRequest, textStatus, errorThrown) {
                 showAlert2("Failed to delete the exam: " + XMLHttpRequest.responseText);

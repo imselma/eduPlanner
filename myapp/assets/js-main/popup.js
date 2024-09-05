@@ -37,22 +37,25 @@ function showAlert2(message) {
     };
 }
 
-function showAlert3(message, examId) {
+function showAlert3(message, id, eventType) {
     document.getElementById("alert-message3").innerHTML = message;
     const alertBox = document.getElementById("custom-alert3");
     const overlay = document.getElementById("custom-alert-overlay3");
     alertBox.style.display = "block";
     overlay.style.display = "block";
 
-    // Handle the close button (Cancel)
     document.getElementById("alert-close3").onclick = function() {
         alertBox.style.display = "none";
         overlay.style.display = "none";
     };
 
-    // Handle the confirm delete button
     document.getElementById("alert-confirm-delete").onclick = function() {
-        ExamService.deleteExam(examId); // Call the delete function
+        console.log("Confirm delete clicked for", eventType, "ID:", id); // Add this log
+        if (eventType === 'Exam') {
+            ExamService.deleteExam(id); 
+        } else if (eventType === 'Task') {
+            TaskService.deleteTask(id); 
+        }
         alertBox.style.display = "none";
         overlay.style.display = "none";
     };

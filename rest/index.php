@@ -12,7 +12,7 @@ header('Access-Control-Allow-Methods: PUT, GET, POST, DELETE, OPTIONS, PATCH');
 Flight::register('base_services', "BaseService");
 Flight::register('user_service', "UserService");
 Flight::register('exam_service', "ExamService");
-Flight::register('task_service', "ExamService");
+Flight::register('task_service', "TaskService");
 
 require './routes/MiddlewareRoutes.php';
 require './routes/UserRoutes.php';
