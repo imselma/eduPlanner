@@ -10,5 +10,9 @@ class TaskDao extends BaseDao {
     public function getTaskByUserId($user_id) {
         return $this->query("SELECT * FROM tasks WHERE user_id = :user_id", ["user_id" => $user_id]);
     }
+
+    public function getTaskByUserIdAndDate($user_id, $task_date) {
+        return $this->query("SELECT * FROM tasks WHERE user_id = :user_id AND task_date = :task_date" , ["user_id" => $user_id, "task_date" => $task_date]);
+    }
 }
 ?>

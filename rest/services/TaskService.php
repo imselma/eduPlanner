@@ -14,13 +14,18 @@ class TaskService extends BaseService{
             'task_description' => $data['task_description'],
             'task_date' => $data['task_date'],
             'user_id' => $data['user_id'],
-            'task_time' => $data['exam_time']
+            'task_time' => $data['task_time'],
+            'task_type' => $data['task_type']
         ];
         return $this->add($task);//calling the add() method on previous instantiated BaseDao object 
     }
     
     public function getTaskByUserId($user_id) {
         return $this->dao->getTaskByUserId($user_id); 
+    }
+
+    public function getTaskByUserIdAndDate($user_id, $task_date) {
+        return $this->dao->getTaskByUserIdAndDate($user_id, $task_date); 
     }
 
 }

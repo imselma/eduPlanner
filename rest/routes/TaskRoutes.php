@@ -110,6 +110,35 @@ Flight::route("GET /getTaskById/@id", function($id){
  });
 
 /**
+     * @OA\Get(
+     *      path="/getTaskByUserIdAnd",
+     *      tags={"exams"},
+     *      summary="Get task by user id and date.",
+     *      security={
+     *         {"ApiKey": {}}
+     *      },
+     *      @OA\Response(
+     *           response=200,
+     *           description="Get exam data or 500 status code exception otherwise"
+     *      )
+     * )
+     */
+
+     Flight::route("POST /getTaskByUserIdAndDate", function(){
+
+      $taskService = new TaskService();
+      $requestData = Flight::request()->data->getData();
+      $userId = Flight::get('user')->id; 
+      $date = $requestData['task_date']; 
+   
+      $result = $taskService->getTaskByUserIdAndDate($userId, $date);
+      
+      Flight::json([
+          'result' => $result
+      ]);
+  });
+
+/**
     * @OA\Put(
     *     path="/editTask/{id}",
     *     tags={"tasks"},
