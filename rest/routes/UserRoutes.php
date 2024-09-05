@@ -116,5 +116,27 @@ Flight::route("POST /login", function() {
       }
    });
 
+   Flight::route('PUT /notificationOn', function() {
+
+      $userId = Flight::get('user')->id; 
+      $userService = new UserService();
+      $result = $userService->turnNotificationOn($userId);
+
+      Flight::json([
+         'result' => $result
+     ]);
+   });
+
+   Flight::route('PUT /notificationOff', function() {
+
+      $userId = Flight::get('user')->id; 
+      $userService = new UserService();
+      $result = $userService->turnNotificationOff($userId);
+
+      Flight::json([
+         'result' => $result
+     ]);
+   });
+
 
 ?>

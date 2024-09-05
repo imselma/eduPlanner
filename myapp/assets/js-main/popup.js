@@ -61,3 +61,41 @@ function showAlert3(message, id, eventType) {
     };
 }
 
+function showNotificationPopup(message) {
+    document.getElementById("notification-popup-message").innerHTML = message;
+    const popupBox = document.getElementById("custom-notification-popup");
+    const overlay = document.getElementById("custom-notification-popup-overlay");
+    popupBox.style.display = "block";
+    overlay.style.display = "block";
+
+    document.getElementById("notification-popup-close").onclick = function() {
+        popupBox.style.display = "none";
+        overlay.style.display = "none";
+    };
+
+    document.getElementById("notification-popup-submit").onclick = function() {
+        notificationService.turnOn();
+        popupBox.style.display = "none";
+        overlay.style.display = "none";
+    };
+}
+
+function showNotificationPopup2(message) {
+    document.getElementById("notification-popup-message").innerHTML = message;
+    const popupBox = document.getElementById("custom-notification-popup");
+    const overlay = document.getElementById("custom-notification-popup-overlay");
+    popupBox.style.display = "block";
+    overlay.style.display = "block";
+
+    document.getElementById("notification-popup-close").onclick = function() {
+        popupBox.style.display = "none";
+        overlay.style.display = "none";
+    };
+
+    document.getElementById("notification-popup-submit").onclick = function() {
+        notificationService.turnOff();
+        popupBox.style.display = "none";
+        overlay.style.display = "none";
+    };
+}
+

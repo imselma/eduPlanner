@@ -14,6 +14,7 @@
 
     <!-- Logout Button -->
     <button  id="logout-button">Log Out</button>
+    <button  id="l"><i class="icon-bell" style="background-color: transparent; font-size: 25px;"></i></button>
     </div>
     <main>
         <section class="ftco-section" id="calendar">
@@ -135,6 +136,17 @@
                                 <button id="alert-confirm-delete">Delete</button> <!-- Confirm delete button -->
                             </div>
 
+                            <!--Notification popup-->
+                            <!-- Overlay for background fade -->
+                            <div id="custom-notification-popup-overlay" class="custom-notification-popup-overlay"></div>
+
+                            <!-- Custom popup box -->
+                            <div id="custom-notification-popup" class="custom-notification-popup">
+                                <p class="my-5 display-5 fw-bold ls-tight small-white-text" id="notification-popup-message"></p>
+                                <button id="notification-popup-close" style="margin-right: 10px;">Cancel</button>
+                                <button id="notification-popup-submit">Yes</button> <!-- Confirm notification turn on -->
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -170,5 +182,18 @@
     <script src="assets/js-main/exams.js"></script>
     <script src="assets/js-main/examTask.js"></script>
     <script src="assets/js-main/login.js"></script>
+    <script src="assets/js-main/notification.js"></script>
 
+   <script>
+        var notification_flag = localStorage.getItem('notification_flag');
+        if(notification_flag == 1){
+            $('#l').css({
+            'background-color': '#198754a6', 
+            });
+        }else {
+            $('#l').css({
+            'background-color': 'rgba(52, 58, 64, 0.5)', 
+            });
+        }
+    </script> 
     </body>

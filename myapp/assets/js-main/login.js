@@ -64,6 +64,7 @@ var UserService = {
                 localStorage.setItem('users_id', result.id);
                 localStorage.setItem('token', result.token);
                 localStorage.setItem('first_name', result.first_name);
+                localStorage.setItem('notification_flag', result.notification_flag);
                 window.location.hash = '#calendar';
                 updateSidebarForAuthenticatedUser();
 
@@ -75,6 +76,15 @@ var UserService = {
                     }
                 }, 100);
 
+                if(result.notification_flag == '1'){
+                    $('#l').css({
+                    'background-color': '#198754a6', 
+                    });
+                }else {
+                    $('#l').css({
+                    'background-color': 'rgba(52, 58, 64, 0.5)', 
+                    });
+                }
                 // Clear the URL query parameters, if I go back button and than login again --> not to have this http://localhost/eduPlanner/myApp/?loginemail=aminameric3%40gmail.com&loginpassword=aminam2103#login
                 window.history.pushState({}, document.title, window.location.pathname + "#calendar");
             },
@@ -106,6 +116,7 @@ var UserService = {
                 localStorage.removeItem('first_name');
                 localStorage.removeItem('user_type');
                 localStorage.removeItem('users_id');
+                localStorage.removeItem('notification_flag');
                 
 
                 window.location.hash = '#home';
