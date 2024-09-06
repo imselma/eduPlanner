@@ -1,46 +1,6 @@
 var ExamService = {
 
     examsArray: [],
-
-    init: function () {
-
-        var selectedEventType = '';
-        var type = '';
-
-        // Handle event type selection
-        $("#event-type-dropdown a").on("click", function () {
-            selectedEventType = $(this).data("type");
-            type = $(this).data("type");
-            $(".btn-group .dropdown-toggle").text(selectedEventType);
-        });
-
-        // Form submit handler
-        $("#form").on("submit", function (e) {
-            e.preventDefault(); // Prevent the form from refreshing the page
-
-            // Collect input values
-            var eventName = $("input[name='eventname']").val();
-            var eventLocation = $("input[name='eventplace']").val();
-            var eventTime = $("input[name='eventtime']").val();
-            var eventDate = $("input[name='eventdate']").val();
-            var eventType = type;
-
-            // Only proceed if the selected type is 'Exam'
-            if (selectedEventType === 'Exam') {
-                var entity = {
-                    exam_name: eventName,
-                    exam_place: eventLocation,
-                    exam_time: eventTime,
-                    exam_date: eventDate,
-                    exam_type: eventType
-                };
-
-                // Call addExam with the entity
-                ExamService.addExam(entity, eventDate); // Pass eventDate to display exams for this date
-            }
-        });
-    },
-
     //Add logic
     addExam: function (entity, eventDate) {
         $.ajax({
@@ -82,7 +42,8 @@ var ExamService = {
             },
             success: function(result) {
                 showAlert2("Exam deleted successfully!");
-                //ExamService.displayExams(); // Refresh the exam list after deletion
+                var selectedDate = $("input[name='eventdate']").val(); 
+                TaskExamService.displayTasksExams(selectedDate);
             },
             error: function(XMLHttpRequest, textStatus, errorThrown) {
                 showAlert2("Failed to delete the exam: " + XMLHttpRequest.responseText);
@@ -93,6 +54,6 @@ var ExamService = {
 
 };
 
-$(document).ready(function () {
+/*$(document).ready(function () {
     ExamService.init();
-});
+});*/

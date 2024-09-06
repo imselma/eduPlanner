@@ -82,5 +82,14 @@ class UserService extends BaseService{
     public function getUserById($id) {
         return $this->dao->getUserById($id);
     }
+
+    public function turnNotificationOn($id) {
+        return $this->dao->turnNotificationOn($id);
+    }
+
+    public function turnNotificationOff($id) {
+        return $this->dao->turnNotificationOff($id);
+    }
+
 }
 ?>

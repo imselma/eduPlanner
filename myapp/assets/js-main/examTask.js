@@ -58,8 +58,12 @@ var TaskExamService = {
                         var delete_button = $("<button class='delete-task' style=' bottom: 10px; right: 10px; padding-left: 17rem; background: none; border: none; cursor: pointer;'></button>")
                             .append("<i class='fa fa-trash' style='color: black; font-size: 20px;'></i>");
 
-                        //Here should delete go
                         
+                        delete_button.on('click', function () {
+                            console.log("Delete button clicked for task ID: ", task.id);
+                            showAlert3("Are you sure you want to delete this task?", task.id, 'Task'); 
+                        });
+
                         $(event_card).append(event_name).append(event_details).append(event_time).append(delete_button);
                         $(".events-container").append(event_card);
                     });
@@ -111,6 +115,10 @@ var TaskExamService = {
                         var delete_button = $("<button class='delete-exam' style=' bottom: 10px; right: 10px; padding-left: 17rem; background: none; border: none; cursor: pointer;'></button>")
                             .append("<i class='fa fa-trash' style='color: black; font-size: 20px;'></i>");
 
+                        delete_button.on('click', function () {
+                            showAlert3("Are you sure you want to delete this exam?", exam.id, 'Exam');
+                        });
+
                         $(event_card).append(event_name).append(event_details).append(event_time).append(delete_button);
                         $(".events-container").append(event_card);
                     });
@@ -122,7 +130,3 @@ var TaskExamService = {
         });
     },
 };
-
-/*$(document).ready(function () {
-    TaskExamService.init();
-});*/

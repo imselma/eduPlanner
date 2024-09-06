@@ -98,7 +98,7 @@ Flight::route("POST /login", function() {
 
    /*User needs to be authenticated to triger some routes. In order to force that we use security and it will be secured using authentication mechanism*/
 
-   Flight::route('POST /authLogout', function() {
+   Flight::route('POST /logout', function() {
 
       try{
          $token = Flight::request()->getHeader("Authentication");
@@ -114,6 +114,28 @@ Flight::route("POST /login", function() {
       }catch(\Exception $e){
          Flight::json(['message'=> $e->getMessage()], 401); //401 -> means unauthenticated user
       }
+   });
+
+   Flight::route('PUT /notificationOn', function() {
+
+      $userId = Flight::get('user')->id; 
+      $userService = new UserService();
+      $result = $userService->turnNotificationOn($userId);
+
+      Flight::json([
+         'result' => $result
+     ]);
+   });
+
+   Flight::route('PUT /notificationOff', function() {
+
+      $userId = Flight::get('user')->id; 
+      $userService = new UserService();
+      $result = $userService->turnNotificationOff($userId);
+
+      Flight::json([
+         'result' => $result
+     ]);
    });
 
 
