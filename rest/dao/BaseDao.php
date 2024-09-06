@@ -106,6 +106,12 @@ require_once __DIR__."/../Config.php";
         $results = $this->query($query, $params);
         return reset($results);
     }
+
+    public function query_without_params($query){
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute(); 
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
  }
 
 ?>

@@ -28,5 +28,10 @@ class TaskService extends BaseService{
         return $this->dao->getTaskByUserIdAndDate($user_id, $task_date); 
     }
 
+    
+    public function getTasksForToday($user_id) {
+        return $this->dao->getTasksForToday($user_id); 
+    }
+
 }
 ?>
