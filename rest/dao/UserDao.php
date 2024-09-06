@@ -18,5 +18,14 @@ class UserDao extends BaseDao {
     public function turnNotificationOff($id) {
         return $this->query("UPDATE users SET notification_flag = 0 WHERE id = :id", ["id" => $id]);
     }
+
+    public function getnNotificationFlag($id) {
+        return $this->query("SELECT notification_flag FROM users WHERE id = :id", ["id" => $id]);
+    }
+
+    public function getUsersWithNotificationsOn() {
+        return $this->query_without_params("SELECT * FROM users WHERE notification_flag = 1");
+    }
+
 }
 ?>

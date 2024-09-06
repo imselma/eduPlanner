@@ -27,5 +27,9 @@ class ExamService extends BaseService{
     public function getExamByUserIdAndDate($user_id, $exam_date) {
         return $this->dao->getExamByUserIdAndDate($user_id, $exam_date); 
     }
+
+    public function getExamsForToday($user_id) {
+        return $this->dao->getExamsForToday($user_id); 
+    }
 }
 ?>
