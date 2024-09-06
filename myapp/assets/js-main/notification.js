@@ -15,7 +15,7 @@ var notificationService = {
         }
       },
       success: function (result) {
-        showAlert2("Notifications turned on!");
+        showAlertN("Notifications turned on!");
         $('#l').css({
           'background-color': '#198754a6', 
         });
@@ -42,7 +42,7 @@ var notificationService = {
         }
       },
       success: function (result) {
-        showAlert2("Notifications turned off!");
+        showAlertN("Notifications turned off!");
         $('#l').css({
           'background-color': 'rgba(52, 58, 64, 0.5)', // Default gray color when notifications are off
         });
@@ -56,12 +56,6 @@ var notificationService = {
   }
 };
 
-/*var notification_flag = localStorage.getItem('notification_flag');
-if(notification_flag == 0){
-  $('#l').on('click', function(e){
-    showNotificationPopup("Do you want to turn deadline notifications on?");
-});
-}*/
 
 $('#l').on('click', function(e){ 
   var notification_flag = localStorage.getItem('notification_flag')
@@ -70,11 +64,6 @@ $('#l').on('click', function(e){
   }
 });
 
-/*if(notification_flag == 1){
-  $('#l').on('click', function(e){
-    showNotificationPopup2("Do you want to turn deadline notifications off?");
-});
-}*/
 
 $('#l').on('click', function(e){ 
   var notification_flag = localStorage.getItem('notification_flag')

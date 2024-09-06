@@ -99,3 +99,16 @@ function showNotificationPopup2(message) {
     };
 }
 
+function showAlertN(message) {
+    document.getElementById("alert-message-n").innerHTML = message;
+    const alertBox = document.getElementById("custom-alert-n");
+    const overlay = document.getElementById("custom-alert-overlay-n");
+    alertBox.style.display = "block";
+    overlay.style.display = "block";
+
+    document.getElementById("alert-close-n").onclick = function() {
+        alertBox.style.display = "none";
+        overlay.style.display = "none";
+    };
+}
+

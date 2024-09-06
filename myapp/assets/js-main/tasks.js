@@ -26,7 +26,7 @@ var TaskService = {
 
             // Only proceed if the selected type is 'Exam'
             if (selectedEventType === 'Task') {
-                var entity = {
+                var entityTask = {
                     task_name: eventName,
                     task_description: eventDescription,
                     task_time: eventTime,
@@ -35,17 +35,28 @@ var TaskService = {
                 };
 
                 // Call addTask with the entity
-                TaskService.addTask(entity, eventDate); // Pass eventDate to display exams for this date
+                TaskService.addTask(entityTask, eventDate); // Pass eventDate to display exams for this date
+            }else if (selectedEventType === 'Exam') {
+                var entityExam = {
+                    exam_name: eventName,
+                    exam_place: eventDescription,
+                    exam_time: eventTime,
+                    exam_date: eventDate,
+                    exam_type: eventType
+                };
+
+                // Call addExam with the entity
+                ExamService.addExam(entityExam, eventDate); // Pass eventDate to display exams for this date
             }
         });
     },
 
     //Add logic
-    addTask: function (entity, eventDate) {
+    addTask: function (entityTask, eventDate) {
         $.ajax({
             url: Constants.get_api_base_url() + "addTask",
             type: "POST",
-            data: JSON.stringify(entity),
+            data: JSON.stringify(entityTask),
             contentType: "application/json",
             dataType: "json",
             beforeSend: function (xhr) {
