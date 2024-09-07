@@ -166,15 +166,6 @@
     <script src="assets/calendar/js/popper.js"></script>
     <script src="assets/calendar/js/bootstrap.min.js"></script>
     <script src="assets/calendar/js/main.js"></script>
-    <script>
-        window.onload = function () {
-            var userName = localStorage.getItem('first_name') || 'User';
-            var greetingElement = document.getElementById('user-greeting');
-            greetingElement.innerHTML = `<b>Welcome, ${userName}! Add your upcoming exams and tasks!</b>`;
-            greetingElement.style.fontSize = '35px';
-        };
-
-    </script>
     <!--JQuery-->
     <script src="assets/js-main/jquery.min.js"></script>
     <!--validation script-->
@@ -191,6 +182,15 @@
     <script src="assets/js-main/examTask.js"></script>
     <script src="assets/js-main/login.js"></script>
     <script src="assets/js-main/notification.js"></script>
+    <script>
+        window.onload = function () {
+            var userName = localStorage.getItem('first_name') || 'User';
+            var greetingElement = document.getElementById('user-greeting');
+            greetingElement.innerHTML = `<b>Welcome, ${userName}! Add your upcoming exams and tasks!</b>`;
+            greetingElement.style.fontSize = '35px';
+        };
+
+    </script>
 
    <script>
         var notification_flag = localStorage.getItem('notification_flag');

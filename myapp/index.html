@@ -77,6 +77,7 @@
         <section id="signup" data-load="signup.html"></section>
         <section id="calendar" data-load="calendar.html"></section>
         <section id="profile" data-load="profile.html"></section>
+        <section id="eduAi" data-load="eduAi.html"></section>
     </main>
     <!-- Footer-->
     <footer class="footer text-center" style="background-color: hsl(0, 0%, 100%); padding: 10px 0;" id="socials">
@@ -130,7 +131,7 @@
     if(isAuthenticated()){
         app.route({ view: 'calendar', load: 'calendar.html' });
         app.route({ view: 'profile', load: 'profile.html' });
-        app.route({ view: 'studytips', load: 'studytips.html' });
+        app.route({ view: 'eduAi', load: 'eduAi.html' });
         updateSidebarForAuthenticatedUser(); 
     } else {
         app.route({ view: 'home', load: 'home.html' });
@@ -153,7 +154,7 @@ function updateSidebarForAuthenticatedUser() {
             <li class="sidebar-brand" style="color:white; font-weight:bold;"><b>EduPlanner</b></li>
             <li class="sidebar-nav-item"><a href="#calendar">Calendar</a></li>
             <li class="sidebar-nav-item"><a href="#profile">Profile</a></li>
-            <li class="sidebar-nav-item"><a href="#studytips">Study Tips</a></li>
+            <li class="sidebar-nav-item"><a href="#eduAi">Edu AI</a></li>
         `;
         addSidebarListener();
     }

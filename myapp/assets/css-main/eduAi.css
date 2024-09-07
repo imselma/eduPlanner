@@ -1,0 +1,112 @@
+
+.ai-section {
+    padding: 1em 0;
+    background-color: hsl(208, 64%, 38%); /* Converted #1D809F to HSL */
+    background-image: radial-gradient(650px circle at 0% 0%,
+       hsl(208, 64%, 42%) 15%, /* Lightened #1D809F */
+        hsl(208, 64%, 37%) 35%, /* Slightly lighter #1D809F */
+        hsl(208, 64%, 38%) 75%, /* Slightly darker #1D809F */
+        hsl(208, 64%, 38%) 80%, /* Darkened #1D809F */
+        transparent 100%),
+      radial-gradient(1250px circle at 100% 100%,
+        #f7c626 15%, /* Converted #efb706 to HSL */
+        hsl(46, 93%, 50%) 35%, /* Slightly darkened #efb706 */
+        hsl(46, 93%, 45%) 75%, /* Further darkened #efb706 */
+        hsl(46, 93%, 40%) 80%, /* More darkened #efb706 */
+        transparent 100%);     }
+
+.ai-no-pt {
+    padding-top: 0; }
+  
+.ai-no-pb {
+    padding-bottom: 0; }
+  
+    .textBox {
+        margin-bottom: 0.5em;
+        display: flex;
+        justify-content: center;
+        padding: 1em;
+    }
+    
+    textarea {
+        width: 50%; /* Increase width for larger screens */
+        height: 25em; /* Maintain the height */
+        padding: 10px;
+        border-radius: 5px;
+        border: 2px solid hsl(208, 62%, 44%);
+        resize: none;
+        background-color: #f9e39d99;
+        font-size: 1.2em;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+    }
+    
+    .box {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        padding: 1em;
+    }
+    
+    input[type="text"] {
+        width: 37%; /* Adjust for better responsiveness */
+        padding: 10px;
+        border: 2px solid #2b75b6;
+        background-color: #f9e39d99;
+        border-radius: 5px;
+        font-size: 1.2em;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+    }
+    
+    button {
+        padding: 12px 20px;
+        background-color: rgba(52, 58, 64, 0.5);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 1em;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    
+    button:hover {
+        background-color: rgba(52, 58, 64, 0.645);
+        transform: scale(1.05);
+    }
+    
+    /* Responsive Styling for Mobile Screens */
+    @media (max-width: 1000px) {
+        textarea {
+            width: 100%;
+            height: 20em; /* Adjust height for smaller screens */
+        }
+    
+        input[type="text"] {
+            width: 80%;
+        }
+    
+        button {
+            width: 30%;
+            font-size: 1em;
+        }
+    }
+    
+    /* Responsive Styling for Small Mobile Screens */
+    @media (max-width: 480px) {
+        textarea {
+            width: 100%;
+            height: 15em; /* Further adjustment for very small screens */
+        }
+    
+        input[type="text"] {
+            width: 80%;
+        }
+    
+        button {
+            width: 30%;
+        }
+    }
+    
