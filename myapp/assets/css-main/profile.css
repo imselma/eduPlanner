@@ -77,14 +77,13 @@ html {
     line-height: 4.3rem;
     font-size: 1.5rem;
     background-color:#1D809F;
-    transition: background-color 0.15s ease-in-out;
     box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
   }
 
-.social-link:hover {
-    background-color: #115164;
-    text-decoration: none;
-  }
+  .social-link:hover {
+    background-color: #1D809F; /* same as the static background */
+}
+
 
 .icon-calendar {
     font-size: 20px; /* Adjust icon size */

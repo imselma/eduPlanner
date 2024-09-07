@@ -29,7 +29,7 @@ class ExamService extends BaseService{
     }
 
     public function getExamsForToday($user_id) {
-        return $this->dao->getExamsForToday($user_id); 
+        return $this->dao->getExamsInNext24Hours($user_id); 
     }
 }
 ?>
