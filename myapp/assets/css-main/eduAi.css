@@ -1,19 +1,17 @@
 
 .ai-section {
     padding: 1em 0;
-    background-color: hsl(208, 64%, 38%); /* Converted #1D809F to HSL */
+    background-color: #23659f; /* Converted #1D809F to HSL */
     background-image: radial-gradient(650px circle at 0% 0%,
-       hsl(208, 64%, 42%) 15%, /* Lightened #1D809F */
-        hsl(208, 64%, 37%) 35%, /* Slightly lighter #1D809F */
-        hsl(208, 64%, 38%) 75%, /* Slightly darker #1D809F */
-        hsl(208, 64%, 38%) 80%, /* Darkened #1D809F */
-        transparent 100%),
-      radial-gradient(1250px circle at 100% 100%,
-        #f7c626 15%, /* Converted #efb706 to HSL */
-        hsl(46, 93%, 50%) 35%, /* Slightly darkened #efb706 */
-        hsl(46, 93%, 45%) 75%, /* Further darkened #efb706 */
-        hsl(46, 93%, 40%) 80%, /* More darkened #efb706 */
-        transparent 100%);     }
+    #f7c626 25%,              /* Lighter yellow at the center */
+    hsl(46, 93%, 50%) 35%,    /* Smooth, even transition towards the edge */
+    transparent 100%),
+  radial-gradient(1250px circle at 100% 100%,
+    #f7c626 15%,              /* Lighter yellow at the center */
+    hsl(46, 93%, 50%) 35%,    /* Slightly darker yellow */
+    transparent 100%),
+        url("../img/background.jpg"); 
+    }
 
 .ai-no-pt {
     padding-top: 0; }
@@ -33,9 +31,10 @@
         height: 25em; /* Maintain the height */
         padding: 10px;
         border-radius: 5px;
-        border: 2px solid hsl(208, 62%, 44%);
+        border: 2px solid #02427b;
         resize: none;
-        background-color: #f9e39d99;
+        color: white;
+        background-color: #1d819fe2;
         font-size: 1.2em;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         transition: all 0.3s ease;
@@ -51,10 +50,11 @@
     }
     
     input[type="text"] {
+        color: white;
         width: 37%; /* Adjust for better responsiveness */
         padding: 10px;
-        border: 2px solid #2b75b6;
-        background-color: #f9e39d99;
+        border: 2px solid #02427b;
+        background-color: #1d819fe2;
         border-radius: 5px;
         font-size: 1.2em;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -75,6 +75,16 @@
     button:hover {
         background-color: rgba(52, 58, 64, 0.645);
         transform: scale(1.05);
+    }
+
+    input::placeholder {
+        color: white;
+        opacity: 1; /* Ensures the placeholder is fully opaque */
+    }
+
+    #output::placeholder {
+        color: white;
+        opacity: 1; /* Ensures the placeholder is fully opaque */
     }
     
     /* Responsive Styling for Mobile Screens */
