@@ -123,47 +123,45 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-    $(document).ready(function () {
-    // Initialize the SPApp
-    var app = $.jQuerySPApp({ defaultView: "home" });
+        $(document).ready(function () {
+            // Initialize the SPApp
+            var app = $.jQuerySPApp({ defaultView: "home" });
+            if (isAuthenticated()) {
+                app.route({ view: 'calendar', load: 'calendar.html' });
+                app.route({ view: 'profile', load: 'profile.html' });
+                app.route({ view: 'eduAi', load: 'eduAi.html' });
+                updateSidebarForAuthenticatedUser();
+            } else {
+                app.route({ view: 'home', load: 'home.html' });
+                app.route({ view: 'login', load: 'login.html' });
+                app.route({ view: 'signup', load: 'signup.html' });
+            }
 
-    // Define routes based on authentication
-    if(isAuthenticated()){
-        app.route({ view: 'calendar', load: 'calendar.html' });
-        app.route({ view: 'profile', load: 'profile.html' });
-        app.route({ view: 'eduAi', load: 'eduAi.html' });
-        updateSidebarForAuthenticatedUser(); 
-    } else {
-        app.route({ view: 'home', load: 'home.html' });
-        app.route({ view: 'login', load: 'login.html' });
-        app.route({ view: 'signup', load: 'signup.html' });
-    }
+            // Run the app
+            app.run();
+        });
 
-    // Run the app
-    app.run();
-});
+        function isAuthenticated() {
+            return localStorage.getItem('token') !== null;
+        }
 
-function isAuthenticated() {
-    return localStorage.getItem('token') !== null;
-}
-
-function updateSidebarForAuthenticatedUser() {
-    var sidebar = document.querySelector('.sidebar-nav');
-    if (sidebar) {
-        sidebar.innerHTML = `
+        function updateSidebarForAuthenticatedUser() {
+            var sidebar = document.querySelector('.sidebar-nav');
+            if (sidebar) {
+                sidebar.innerHTML = `
             <li class="sidebar-brand" style="color:white; font-weight:bold;"><b>EduPlanner</b></li>
             <li class="sidebar-nav-item"><a href="#calendar">Calendar</a></li>
             <li class="sidebar-nav-item"><a href="#profile">Profile</a></li>
             <li class="sidebar-nav-item"><a href="#eduAi">Edu AI</a></li>
         `;
-        addSidebarListener();
-    }
-}
+                addSidebarListener();
+            }
+        }
 
-function updateSidebarForUnauthenticatedUser() {
-    var sidebar = document.querySelector('.sidebar-nav');
-    if (sidebar) {
-        sidebar.innerHTML = `
+        function updateSidebarForUnauthenticatedUser() {
+            var sidebar = document.querySelector('.sidebar-nav');
+            if (sidebar) {
+                sidebar.innerHTML = `
             <li class="sidebar-brand" style="color:white; font-weight:bold;"><b>EduPlanner</b></li>
             <li class="sidebar-nav-item"><a href="#home">Home</a></li>
             <li class="sidebar-nav-item"><a href="#about">About</a></li>
@@ -171,36 +169,35 @@ function updateSidebarForUnauthenticatedUser() {
             <li class="sidebar-nav-item"><a href="#socials">Socials</a></li>
             <li class="sidebar-nav-item"><a href="#login">Start Now</a></li>
         `;
-        addSidebarListener();
-    }
-}
-
-function addSidebarListener() {
-    const sidebarNavItems = document.querySelectorAll('#sidebar-wrapper .sidebar-nav-item a');
-    const sidebarWrapper = document.getElementById('sidebar-wrapper');
-    const menuToggle = document.body.querySelector('.menu-toggle');
-
-    // Close sidebar when a menu item is clicked
-    sidebarNavItems.forEach(item => {
-        item.addEventListener('click', event => {
-            sidebarWrapper.classList.remove('active');
-            _toggleMenuIcon();
-            menuToggle.classList.remove('active');
-        });
-    });
-}
-function _toggleMenuIcon() {
-        const menuToggleBars = document.body.querySelector('.menu-toggle > .fa-bars');
-        const menuToggleTimes = document.body.querySelector('.menu-toggle > .fa-xmark');
-        if (menuToggleBars) {
-            menuToggleBars.classList.remove('fa-bars');
-            menuToggleBars.classList.add('fa-xmark');
+                addSidebarListener();
+            }
         }
-        if (menuToggleTimes) {
-            menuToggleTimes.classList.remove('fa-xmark');
-            menuToggleTimes.classList.add('fa-bars');
+
+        function addSidebarListener() {
+            const sidebarNavItems = document.querySelectorAll('#sidebar-wrapper .sidebar-nav-item a');
+            const sidebarWrapper = document.getElementById('sidebar-wrapper');
+            const menuToggle = document.body.querySelector('.menu-toggle');
+
+            sidebarNavItems.forEach(item => {
+                item.addEventListener('click', event => {
+                    sidebarWrapper.classList.remove('active');
+                    _toggleMenuIcon();
+                    menuToggle.classList.remove('active');
+                });
+            });
         }
-    }
+        function _toggleMenuIcon() {
+            const menuToggleBars = document.body.querySelector('.menu-toggle > .fa-bars');
+            const menuToggleTimes = document.body.querySelector('.menu-toggle > .fa-xmark');
+            if (menuToggleBars) {
+                menuToggleBars.classList.remove('fa-bars');
+                menuToggleBars.classList.add('fa-xmark');
+            }
+            if (menuToggleTimes) {
+                menuToggleTimes.classList.remove('fa-xmark');
+                menuToggleTimes.classList.add('fa-bars');
+            }
+        }
 
     </script>
 
