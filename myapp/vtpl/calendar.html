@@ -23,7 +23,7 @@
                     <div class="col-md-8 text-center mb-5">
                         <h1 class="my-5 display-5 fw-bold ls-tight">
                             <b>EduPlanner </b><br />
-                            <span style="color: whitesmoke" id="user-greeting"><b></b></span>
+                            <span style="color: whitesmoke;  font-size: 0.8em;" id="user-greeting"><b>Welcome! Add your upcoming exams and tasks!</b></span>
                         </h1>
                     </div>
                 </div>
@@ -102,95 +102,114 @@
                                         <label class="form-label" id="valueFromMyButton" for="e-name">Event name</label>
                                         <input class="input" type="text" id="e-name" name="eventname" maxlength="36">
                                         <!--Description-->
-                                        <label class="form-label" id="valueFromMyButton" for="e-place">Event
-                                            Details</label>
+                                        <label class="form-label" id="valueFromMyButton" for="e-place">Event Details</label>
                                         <input class="input" type="text" id="e-details" name="eventplace">
                                         <!-- Time input for HH:MM -->
                                         <label class="form-label" id="valueFromMyButton" for="e-time">Event Time</label>
-                                        <input class="input time-input" type="time" id="e-time" name="eventtime"
-                                            style="margin-bottom: 10px;">
+                                        <input class="input time-input" type="time" id="e-time" name="eventtime" style="margin-bottom: 10px;">
                                         <!--Buttons-->
                                         <input type="button" value="Cancel" class="button" id="cancel-button">
-                                        <button type="submit" class="button button-white" id="ok-button"
-                                            style="margin-top: 10px;">OK</button>
-
+                                        <button type="submit" class="button button-white" id="ok-button" style="margin-top: 10px;">OK</button>
                                     </div>
                                 </form>
                             </div>
-                            <!-- Overlay for background fade -->
+                            <!--ALERT MODAL 1-->
                             <div id="custom-alert-overlay2" class="custom-alert-overlay"></div>
 
-                            <!-- Custom alert box -->
                             <div id="custom-alert2" class="custom-alert">
-                                <p class="my-5 display-5 fw-bold ls-tight small-white-text" id="alert-message2"></p>
+                                <p style="font-size: 1.5rem;" id="alert-message2" style="font-size: 1rem;"></p>
                                 <button id="alert-close2">OK</button>
                             </div>
 
-                            <!-- Overlay for background fade -->
+                            <!--ALERT MODAL 2-->
                             <div id="custom-alert-overlay3" class="custom-alert-overlay"></div>
 
-                            <!-- Custom alert box -->
                             <div id="custom-alert3" class="custom-alert">
-                                <p class="my-5 display-5 fw-bold ls-tight small-white-text" id="alert-message3"></p>
+                                <p style="font-size: 1.5rem;" id="alert-message3" style="font-size: 1rem;"></p>
                                 <button id="alert-close3" style="margin-right: 10px;">Cancel</button>
-                                <button id="alert-confirm-delete">Delete</button> <!-- Confirm delete button -->
+                                <button id="alert-confirm-delete">Delete</button>
                             </div>
 
-                            <!--Notification popup-->
-                            <!-- Overlay for background fade -->
+                            <!--NOTIFICATION POPUP-->
                             <div id="custom-notification-popup-overlay" class="custom-notification-popup-overlay"></div>
 
-                            <!-- Custom popup box -->
                             <div id="custom-notification-popup" class="custom-notification-popup">
-                                <p class="my-5 display-5 fw-bold ls-tight small-white-text" id="notification-popup-message"></p>
+                                <p style="font-size: 1.5rem;" id="notification-popup-message" style="font-size: 1rem;"></p>
                                 <button id="notification-popup-close" style="margin-right: 10px;">Cancel</button>
-                                <button id="notification-popup-submit">Yes</button> <!-- Confirm notification turn on -->
+                                <button id="notification-popup-submit">Yes</button> 
                             </div>
 
-                            <!-- Overlay for background fade -->
+                            <!--ALERT MODAL 3-->
                             <div id="custom-alert-overlay-n" class="custom-alert-overlay-n"></div>
 
-                            <!-- Custom alert box -->
                             <div id="custom-alert-n" class="custom-alert-n">
-                                <p class="my-5 display-5 fw-bold ls-tight small-white-text" id="alert-message-n"></p>
+                                <p style="font-size: 1.5rem;" id="alert-message-n" style="font-size: 1.5rem;"></p>
                                 <button id="alert-close-n">OK</button>
+                            </div>
+
+                            <!--EDIT MODAL-->
+                            <div id="edit-overlay" class="edit-overlay"></div>
+
+                            <div id="edit-box" class="edit-box">
+                                <form class="form" id="form-edit-exam" style="margin-top: -2.5rem;"></form>
+                                    <!--Dropdown button-->
+                                    <div class="d-flex justify-content-center" style="margin-top: 10%;">
+                                        <div class="btn-group">
+                                            <button class="btn btn-secondary dropdown-toggle" type="button"
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                                style="color:black; background-color: #F7c626; border-radius: 25px; border-color: #1D809F; font-size: 15px;">
+                                                EVENT TYPE
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="event-type-dropdown">
+                                                <a class="dropdown-item" data-type="Task">Task</a>
+                                                <a class="dropdown-item" data-type="Exam">Exam</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Hidden input field to store the selected event type -->
+                                    <input type="hidden" id="eventType" value="">
+                                    <!--Form elements-->
+                                    <div class="form-container" align="center">
+                                        <!--Name-->
+                                        <label class="form-label" id="edit1" for="editname1" style="font-size: 18px; font-weight: 500; color: black;">Event name</label>
+                                        <input class="input" type="text" id="editname1" name="eventnameedit" maxlength="36" style="font-size: 16px;">
+                                        <!--Description-->
+                                        <label class="form-label" id="edit2" for="editdetails2" style="font-size: 18px; font-weight: 500; color: black;">Event Details</label>
+                                        <input class="input" type="text" id="editdetails2" name="eventplaceedit" style="font-size: 16px;">
+                                        <!-- Time input for HH:MM -->
+                                        <label class="form-label" id="edit3" for="edittime3" style="font-size: 18px; font-weight: 500; color: black;">Event Time</label>
+                                        <input class="input time-input" type="time" id="edittime3" name="eventtimetime" style=" font-size: 16px;">
+                                        <!-- Date input for choosing the event date -->
+                                        <label class="form-label" id="edit4" for="editdate4" style="font-size: 18px; font-weight: 500; color: black;">Event Date</label>
+                                        <input class="input date-input" type="date" id="editdate4" name="eventdateedit" style="margin-bottom: 10px; font-size: 16px;">
+                                        <!--Id-->
+                                        <input type="hidden" id="eventid" name="eventid">
+                                    </div>
+                                </form>
+                                
+                                <button id="edit-close" style=" margin-bottom: 10px; margin-right: 10px; margin-top: 35px; color:black;">Cancel</button>
+                                <button id="edit-submit" style="color:black;">Submit</button> 
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-
     </main>
     <script src="assets/calendar/js/jquery.min.js"></script>
     <script src="assets/calendar/js/popper.js"></script>
     <script src="assets/calendar/js/bootstrap.min.js"></script>
-    <script src="assets/calendar/js/main.js"></script>
-    <!--JQuery-->
-    <script src="assets/js-main/jquery.min.js"></script>
-    <!--validation script-->
-    <script src="assets/js-main/jquery.validate.min.js"></script>
-    <!--Constants-->
-    <script src="utils/constants.js"></script>
-    <!--Exams.js-->
     <script src="assets/js-main/exams.js"></script>
-    <!--Popup.js-->
+    <script src="assets/calendar/js/main.js"></script>
+    <script src="assets/js-main/jquery.min.js"></script>
+    <script src="assets/js-main/jquery.validate.min.js"></script>
+    <script src="utils/constants.js"></script>
     <script src="assets/js-main/popup.js"></script>
-    <!--Tasks.js-->
     <script src="assets/js-main/tasks.js"></script>
     <script src="assets/js-main/exams.js"></script>
     <script src="assets/js-main/examTask.js"></script>
     <script src="assets/js-main/login.js"></script>
     <script src="assets/js-main/notification.js"></script>
-    <script>
-        window.onload = function () {
-            var userName = localStorage.getItem('first_name') || 'User';
-            var greetingElement = document.getElementById('user-greeting');
-            greetingElement.innerHTML = `<b>Welcome, ${userName}! Add your upcoming exams and tasks!</b>`;
-            greetingElement.style.fontSize = '35px';
-        };
-
-    </script>
 
    <script>
         var notification_flag = localStorage.getItem('notification_flag');
@@ -204,4 +223,15 @@
             });
         }
     </script> 
-    </body>
+    <script>
+        $(document).ready(function () {
+        $("#event-type-dropdown .dropdown-item").on("click", function () {
+            var selectedEventType = $(this).data("type");
+            $("#eventType").val(selectedEventType);  // Update hidden input field with the selected value
+            $(".dropdown-toggle").text(selectedEventType);  // Update the button text to show the selected event type
+        });
+    });
+
+    </script>
+
+</body>

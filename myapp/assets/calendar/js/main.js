@@ -7,7 +7,6 @@
         var today = date.getDate();
         var formattedDate = formatDate(date);
 
-        // Set click handlers for DOM elements
         $(".right-button").click({ date: date }, next_year);
         $(".left-button").click({ date: date }, prev_year);
         $(".month").click({ date: date }, month_click);
@@ -21,7 +20,6 @@
         TaskExamService.displayTasksExams(formattedDate); // Display tasks/exams for today on page load
     });
 
-    // Initialize the calendar by appending the HTML dates
     function init_calendar(date) {
         $(".tbody").empty();
         $(".events-container").empty();
@@ -83,7 +81,7 @@
 
         // Get the selected day, month, and year
         var selectedDay = event.data.day;
-        var selectedMonth = months.indexOf(event.data.month) + 1; // Convert month to numeric value
+        var selectedMonth = months.indexOf(event.data.month) + 1; 
         var selectedYear = $(".year").text(); // Get the current year
 
         // Format the date as YYYY-MM-DD
@@ -135,27 +133,6 @@
         var day = date.getDate().toString().padStart(2, '0'); // Add leading zero
         return year + '-' + month + '-' + day;
     }
-
-    // Event handler for when a date is clicked
-    /*function date_click(event) {
-        $(".events-container").show(250);
-        $("#dialog").hide(250);
-        $(".active-date").removeClass("active-date");
-        $(this).addClass("active-date");
-
-        // Get the selected day, month, and year
-        var selectedDay = event.data.day;
-        var selectedMonth = months.indexOf(event.data.month) + 1; // Convert month to numeric value
-        var selectedYear = $(".year").text(); // Get the current year
-
-        // Format the date as YYYY-MM-DD
-        var selectedDate = selectedYear + "-" + (selectedMonth < 10 ? "0" + selectedMonth : selectedMonth) + "-" + (selectedDay < 10 ? "0" + selectedDay : selectedDay);
-
-        // Store the selected date in the hidden input field
-        $("#eventdate").val(selectedDate);
-
-        show_events(event.data.events, event.data.month, event.data.day);
-    }*/
 
     // Event handler for clicking the new event button
     function new_event(event) {
@@ -275,3 +252,26 @@
     ];
 
 })(jQuery);
+
+function showModalEditEvent(id, type) {
+
+    const modalBox = document.getElementById("edit-box");
+    const modaloverlay = document.getElementById("edit-overlay");
+    modalBox.style.display = "block";
+    modaloverlay.style.display = "block";
+
+    document.getElementById("edit-close").onclick = function() {
+        modalBox.style.display = "none";
+        modaloverlay.style.display = "none";
+    };
+
+    document.getElementById("edit-submit").onclick = function() {
+        var selectedDateEvent = $("input[name='eventdate']").val(); 
+
+        console.log("Ja se mogu kliknuti da submitam exam!");
+        ExamService.submitExamTaskEditForm(id, type);
+        //TaskExamService.displayTasksExams(selectedDateEvent);
+        modalBox.style.display = "none";
+        modaloverlay.style.display = "none";
+    };
+}

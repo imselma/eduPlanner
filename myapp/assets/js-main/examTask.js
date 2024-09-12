@@ -9,7 +9,7 @@ var TaskExamService = {
 
         // Clear the event container before displaying new exams
         $(".events-container").empty();
-        console.log('datum',task_exam_date);
+        //console.log('datum',task_exam_date);
         
         var dateParts = task_exam_date.split('-');
         var month = dateParts[1];
@@ -42,7 +42,12 @@ var TaskExamService = {
                 } else {
                     // Display each task
                     TaskService.tasksArray.forEach((task) => {
-                        var event_card = $("<div class='event-card'></div>");
+                       // console.log("Task", task);
+                        var event_card = $("<div class='event-card' style='position: relative;'></div>");
+                        var event_id = $("<div class='event-id' style='visibility: hidden;'></div>")
+                            .append("<span style='color: #e0a800; font-weight: bold;'>Id: </span>")
+                            .append("<span style='color: black; font-weight: normal;'>" + task.id + "</span>");
+
                         var event_name = $("<div class='event-name'></div>")
                             .append("<span style='color: #e0a800; font-weight: bold;'>Task: </span>")
                             .append("<span style='color: black; font-weight: normal;'>" + task.task_name + "</span>");
@@ -54,17 +59,36 @@ var TaskExamService = {
                         var event_time = $("<div class='event-details'></div>")
                             .append("<span style='color: #e0a800; font-weight: bold;'>Time: </span>")
                             .append("<span style='color: black; font-weight: normal;'>" + task.task_time + " h</span>");
-                        
-                        var delete_button = $("<button class='delete-task' style=' bottom: 10px; right: 10px; padding-left: 17rem; background: none; border: none; cursor: pointer;'></button>")
-                            .append("<i class='fa fa-trash' style='color: black; font-size: 20px;'></i>");
+                                
+                        var button_container = $("<div class='button-container' style='position: absolute; bottom: 10px; right: 10px; display: flex; gap: 10px;'></div>");
 
+                        var delete_button = $("<button class='delete-exam' style='background: none; border: none; cursor: pointer;'></button>")
+                            .append("<i class='fa fa-trash' style='color: black; font-size: 20px;'></i>");
+                        
+                        var edit_button = $("<button class='edit-exam' style='background: none; border: none; cursor: pointer;'></button>")
+                                .append("<i class='fa fa-pencil' style='color: black; font-size: 20px;'></i>");
                         
                         delete_button.on('click', function () {
                             console.log("Delete button clicked for task ID: ", task.id);
                             showAlert3("Are you sure you want to delete this task?", task.id, 'Task'); 
                         });
 
-                        $(event_card).append(event_name).append(event_details).append(event_time).append(delete_button);
+                        edit_button.on('click', function () {
+
+                            console.log("Opening edit modal forrrr: ", task.id);
+                            console.log("type:", task.task_type);
+
+                            $("#editname1").val(task.task_name);
+                            $("#editdetails2").val(task.task_description);
+                            $("#edittime3").val(task.task_time);
+                            $("editdate4").val(task.task_date);
+                            $("#event-type-dropdown-edit").val(task.task_type);
+
+                            showModalEditEvent(task.id, 'Task');
+                        });
+
+                        $(button_container).append(edit_button).append(delete_button);
+                        $(event_card).append(event_id).append(event_name).append(event_details).append(event_time).append(button_container);
                         $(".events-container").append(event_card);
                     });
                 }
@@ -99,7 +123,11 @@ var TaskExamService = {
                 } else {
                     // Display each exam
                     ExamService.examsArray.forEach((exam) => {
-                        var event_card = $("<div class='event-card'></div>");
+                        var event_card = $("<div class='event-card' style='position: relative;'></div>");
+                        var event_id = $("<div class='event-id' style='visibility: hidden;'></div>")
+                            .append("<span style='color: #e0a800; font-weight: bold;'>Id: </span>")
+                            .append("<span style='color: black; font-weight: normal;'>" + exam.id + "</span>");
+
                         var event_name = $("<div class='event-name'></div>")
                             .append("<span style='color: #e0a800; font-weight: bold;'>Exam: </span>")
                             .append("<span style='color: black; font-weight: normal;'>" + exam.exam_name + "</span>");
@@ -112,20 +140,38 @@ var TaskExamService = {
                             .append("<span style='color: #e0a800; font-weight: bold;'>Time: </span>")
                             .append("<span style='color: black; font-weight: normal;'>" + exam.exam_time + " h</span>");
                         
-                        var delete_button = $("<button class='delete-exam' style=' bottom: 10px; right: 10px; padding-left: 17rem; background: none; border: none; cursor: pointer;'></button>")
-                            .append("<i class='fa fa-trash' style='color: black; font-size: 20px;'></i>");
+                        var button_container = $("<div class='button-container' style='position: absolute; bottom: 10px; right: 10px; display: flex; gap: 10px;'></div>");
 
+                        var delete_button = $("<button class='delete-exam' style='background: none; border: none; cursor: pointer;'></button>")
+                            .append("<i class='fa fa-trash' style='color: black; font-size: 20px;'></i>");
+                        
+                        var edit_button = $("<button class='edit-exam' style='background: none; border: none; cursor: pointer;'></button>")
+                            .append("<i class='fa fa-pencil' style='color: black; font-size: 20px;'></i>");
+                            
                         delete_button.on('click', function () {
                             showAlert3("Are you sure you want to delete this exam?", exam.id, 'Exam');
                         });
 
-                        $(event_card).append(event_name).append(event_details).append(event_time).append(delete_button);
+                        edit_button.on('click', function () {
+
+                            console.log("Opening edit modal for: ", exam.id);
+                            console.log("EType:", exam.exam_type);
+                            $("#editname1").val(exam.exam_name);
+                            $("#editdetails2").val(exam.exam_place);
+                            $("#edittime3").val(exam.exam_time);
+                            $("#editdate4").val(exam.exam_date);
+                            $("#event-type-dropdown").val(exam.exam_type);
+                            showModalEditEvent(exam.id, 'Exam');
+                        });
+
+                        $(button_container).append(edit_button).append(delete_button);
+                        $(event_card).append(event_id).append(event_name).append(event_details).append(event_time).append(button_container);
                         $(".events-container").append(event_card);
                     });
                 }
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
-                alert("Failed to fetch exam: " + XMLHttpRequest.responseText);
+                alert("Failed to fetch task: " + XMLHttpRequest.responseText);
             }
         });
     },

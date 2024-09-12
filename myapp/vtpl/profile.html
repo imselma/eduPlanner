@@ -1,38 +1,177 @@
-<body>
+
     <link rel="stylesheet" href="assets/css-main/profile.css">
-	<link rel="stylesheet" href="assets/css-main/styles.css">
+    <link rel="stylesheet" href="assets/css-main/styles.css">
     <main>
-        <!-- Main content wrapper -->
-        <div class="wrapper">
-            <div class="main-content">
-                <div class="box-content" style="overflow: hidden;">
-                    <div class="card-header">
-                        <div class="media align-items-start profile-header">
-                            <div class="profile mr-3" style="margin-left: 1rem;">
-                                <img src="https://bootstrapious.com/i/snippets/sn-profile/teacher.jpg" alt="..."
-                                    width="130" class="rounded mb-2 img-thumbnail">
-                            </div>
-                            <div class="info-box">
-                                <h4 class="user-name">Selma Imsirovic</h4>
-                                <p class="university" style="margin-bottom: 0rem;">International Burch University</p>
-                                <p class="department" style="margin-bottom: 0rem;">Information Technology</p>
-                                <p class="city" style="margin-top: 0rem;"> <i class="fa fa-map-marker mr-4"></i>
-                                    Sarajevo</p>
-                            </div>
+        <div class="main-content">
+            <div class="profile-container">
+                <div class="profile-info-box">
+                    <div class="profile-details" id="profile-details">
+                    </div>
+                    <div class="profile-actions">
+                        <button class="profile-btn" id="edit-btn">Edit Profile</button>
+                        <button class="profile-btn" id="delete-btn">Deactivate Profile</button>
+                        <button class="profile-btn" id="logout-btnn">Log Out</button>
+                    </div>
+                </div>
+                <p class="profile-title"><b>Your upcomming deadlines...</b></p>
+                <div class="dropdown-container">
+                    <div class="dropdown">
+                        <button class="profile-btn dropdown-btn">Menu</button>
+                        <div class="dropdown-content" id="event-type-dropdown">
+                            <a class="dropdown-item1" data-type="Task">Task</a>
+                            <a class="dropdown-item2" data-type="Exam">Exam</a>
                         </div>
                     </div>
+                </div>
+                <div class="deadline-container" id="deadline-container"></div>
+                <!--TASK PAGINATION-->
+                <div class="pagination-controls-task">
+                    <button id="prev-page-task" class="pagination-btn-task">Prev</button>
+                    <span id="page-info-task"></span>
+                    <button id="next-page-task" class="pagination-btn-task">Next</button>
+                </div>
 
-                    <div class=" title-box py-4 px-4">
-                        <div class="d-flex align-items-center justify-content-end mb-3">
-                            <h3 class="mb-1 text-center" style="color: #1D809F;">My notes</h3>
-                            <div class="social-link rounded-circle text-white ml-3" style="margin-left: 30px;">
-                                <i class="icon-note"></i>
-                            </div>
-                                                    </div>
-                    </div>
+                <!--EXAM PAGINATION-->
+                <div class="pagination-controls-exam">
+                    <button id="prev-page-exam" class="pagination-btn-exam">Prev</button>
+                    <span id="page-info-exam"></span>
+                    <button id="next-page-exam" class="pagination-btn-exam">Next</button>
                 </div>
             </div>
         </div>
+
+        <!--DELETE CARDS-->
+        <div id="modal-overlay-profile" class="modal-overlay-profile"></div>
+
+        <div id="modal-profile" class="modal-profile">
+            <p id="modal-message" style="font-size: 1.5rem;"></p>
+            <button id="modal-close" style="margin-right: 10px;">Cancel</button>
+            <button id="modal-confirm-delete">Delete</button>
+        </div>
+
+        <!--SUCCESS MODAL-->
+        <div id="modal-overlay-success" class="modal-overlay-success"></div>
+
+        <div id="modal-success" class="modal-success">
+            <p id="modal-success-message" style="font-size: 1.5rem;"></p>
+            <button id="modal-success-close" style="margin-right: 10px;">OK</button>
+        </div>
+
+        <!--DELETE PROFILE-->
+        <div id="modal-overlay-profile-delete" class="modal-overlay-profile-delete"></div>
+
+        <div id="modal-profile-delete" class="modal-profile-delete">
+            <p id="modal-message-delete" style="font-size: 1.5rem;"></p>
+            <button id="modal-close-delete" style="margin-right: 10px;">Cancel</button>
+            <button id="modal-confirm-del">Delete</button>
+        </div>
+
+        <!--EDIT PROFILE-->
+        <div id="modal-overlay-profile-edit" class="modal-overlay-profile-edit"></div>
+
+        <div id="modal-profile-edit" class="modal-profile-edit">
+                <form id="edit-form">
+                    <!-- 2 column grid layout with text inputs for the first and last names -->
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div data-mdb-input-init class="form-outline">
+                                <input type="text" id="editform1" class="form-control" name="editfirstname" />
+                                <label class="form-label" style="color: white; margin-top:5px; font-size: 14px; text-transform: uppercase;"
+                                    for="editform1">First name</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div data-mdb-input-init class="form-outline">
+                                <input type="text" id="editform2" class="form-control" name="editlastname" />
+                                <label class="form-label" style="color: white; margin-top:5px; font-size: 14px; text-transform: uppercase;"
+                                    for="editform2">Last name</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 2 column grid layout with text inputs for the username and email -->
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div data-mdb-input-init class="form-outline">
+                                <input type="text" id="editform3" class="form-control" name="editusername" />
+                                <label class="form-label" style="color: white; margin-top:5px; font-size: 14px; text-transform: uppercase;"
+                                    for="editform3">Username</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div data-mdb-input-init class="form-outline">
+                                <input type="email" id="editform4" class="form-control" name="editemail" />
+                                <label class="form-label" style="color: white; margin-top:5px; font-size: 14px; text-transform: uppercase;"
+                                    for="editform4">Email address</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <input type="password" id="editform5" class="form-control" name="editpassword"
+                            autocomplete="current-password" />
+                        <label class="form-label" style="color: white; margin-top:5px; font-size: 14px; text-transform: uppercase;"
+                            for="editfrom5">Password</label>
+                    </div>
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <input type="text" id="editform6" class="form-control" name="editnumber" />
+                        <label class="form-label" style="color: white; margin-top:5px; font-size: 14px; text-transform: uppercase;"
+                            for="editfrom6">Phone number</label>
+                    </div>
+        </form>
+        <button id="modal-close-edit" style="margin-right: 10px;">Cancel</button>
+        <button id="modal-confirm-edit">Submit</button>
+        </div>
     </main>
+    <script src="utils/constants.js"></script>
     <script src="assets/js-main/profile.js"></script>
-</body>
+    <script src="assets/js-main/exams.js"></script>
+    <script src="assets/js-main/tasks.js"></script>
+    <script src="assets/js-main/tasks.js"></script>
+    <script src="assets/js-main/login.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            UserService.getUser().then(function(result) {
+                if (result && result.result) {
+                    $("#editform1").val(result.result.first_name);
+                    $("#editform2").val(result.result.last_name);
+                    $("#editform3").val(result.result.username);
+                    $("#editform4").val(result.result.email);
+                    $("#editform6").val(result.result.phone_number);
+                } else {
+                    console.error("No user data found!");
+                }
+            }).catch(function(error) {
+                console.error("Error fetching user data:", error);
+            });
+        });
+    </script>
+
+<script>
+    $(document).ready(function() {
+        $(".pagination-controls-task").hide();
+        $(".pagination-controls-exam").show();
+
+        $('#event-type-dropdown .dropdown-item1').on('click', function() {
+            $(".pagination-controls-task").show(); 
+            $(".pagination-controls-exam").hide();  
+            TaskService.getTasks();
+        });
+
+        $('#event-type-dropdown .dropdown-item2').on('click', function() {
+            $(".pagination-controls-task").hide();   
+            $(".pagination-controls-exam").show();         
+            ExamService.getExams();         
+        });
+
+    })
+</script>
+
+<script>
+    $(document).ready(function () {
+    $("#event-type-dropdown-editp .dropdown-item").on("click", function () {
+        var selectedEventType = $(this).data("type");
+        $("#eventType").val(selectedEventType);  // Update hidden input field with the selected value
+        $(".dropdown-toggle").text(selectedEventType);  // Update the button text to show the selected event type
+    });
+});
+</script>

@@ -7,15 +7,15 @@ class ExamService extends BaseService{
         parent::__construct(new ExamDao);
     } 
 
-    public function addExam($data){
+    public function addExam($data, $user_id){
 
         $exam = [
             'exam_name' => $data['exam_name'],
-            'exam_date' => $data['exam_date'],
             'exam_place' =>$data['exam_place'],
-            'user_id' => $data['user_id'],
             'exam_time' => $data['exam_time'],
-            'exam_type' => $data['exam_type']
+            'exam_date' => $data['exam_date'],
+            'exam_type' => $data['exam_type'],
+            'user_id' => $user_id
         ];
         return $this->add($exam);//calling the add() method on previous instantiated BaseDao object 
     }
@@ -29,7 +29,7 @@ class ExamService extends BaseService{
     }
 
     public function getExamsForToday($user_id) {
-        return $this->dao->getExamsInNext24Hours($user_id); 
+        return $this->dao->getExamsForToday($user_id); 
     }
 }
 ?>

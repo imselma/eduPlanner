@@ -33,13 +33,13 @@ Flight::route('GET /connection-check', function(){
  */
 
 Flight::route("POST /register", function() {
-   $payload = Flight::request()->data->getData(); // Getting data from the request payload.
-   $userService = new UserService(); // Making an instance of UserService
+   $payload = Flight::request()->data->getData();
+   $userService = new UserService(); 
    
-   $result = $userService->register($payload); // Add user to db
+   $result = $userService->register($payload);
    
    if (is_array($result) && isset($result['error'])) {
-       Flight::json($result, 400); // Return the error and messages with a 400 status code
+       Flight::json($result, 400);
    } else {
        Flight::json(['message' => 'User registered successfully!']);
    }
@@ -79,14 +79,13 @@ Flight::route("POST /login", function() {
          $jwt_payload = [
             'user' => $fatchedUser,
             "issued_at" => time(),
-            "exp" => time() + (60 * 60 * 24) //Valid one day
+            "exp" => time() + (60 * 60 * 24)
          ];
       
-         //create token
          $token = JWT::encode(
-            $jwt_payload, //payload
-            JWT_SECRET, //secret created in config
-            'HS256' //algorithm used to create token (SHA256)
+            $jwt_payload,
+            JWT_SECRET, 
+            'HS256' 
          );
       
          Flight::json(array_merge($fatchedUser, ['token' => $token]));
@@ -98,44 +97,74 @@ Flight::route("POST /login", function() {
 
    /*User needs to be authenticated to triger some routes. In order to force that we use security and it will be secured using authentication mechanism*/
 
-   Flight::route('POST /logout', function() {
+Flight::route('POST /logout', function() {
 
-      try{
-         $token = Flight::request()->getHeader("Authentication");
-         if(!$token){
-            Flight::json(['message' => "Missing authentication header!"], 401);
-         }
-         $decoded_token = JWT::decode($token, new Key(JWT_SECRET, 'HS256')); //If I add something it would fail because I am trying to decode jwt token signed with one secret, with another
-
-         Flight::json([
-            'jwt_decoded' => $decoded_token,
-            'user' => $decoded_token->user
-         ]);
-      }catch(\Exception $e){
-         Flight::json(['message'=> $e->getMessage()], 401); //401 -> means unauthenticated user
+   try{
+      $token = Flight::request()->getHeader("Authentication");
+      if(!$token){
+         Flight::json(['message' => "Missing authentication header!"], 401);
       }
-   });
-
-   Flight::route('PUT /notificationOn', function() {
-
-      $userId = Flight::get('user')->id; 
-      $userService = new UserService();
-      $result = $userService->turnNotificationOn($userId);
+      $decoded_token = JWT::decode($token, new Key(JWT_SECRET, 'HS256')); //If I add something it would fail because I am trying to decode jwt token signed with one secret, with another
 
       Flight::json([
-         'result' => $result
-     ]);
-   });
+         'jwt_decoded' => $decoded_token,
+         'user' => $decoded_token->user
+      ]);
+   }catch(\Exception $e){
+      Flight::json(['message'=> $e->getMessage()], 401); 
+   }
+});
 
-   Flight::route('PUT /notificationOff', function() {
+Flight::route('PUT /notificationOn', function() {
 
-      $userId = Flight::get('user')->id; 
-      $userService = new UserService();
-      $result = $userService->turnNotificationOff($userId);
+   $userId = Flight::get('user')->id; 
+   $userService = new UserService();
+   $result = $userService->turnNotificationOn($userId);
 
-      Flight::json([
-         'result' => $result
-     ]);
-   });
+   Flight::json([
+      'result' => $result
+   ]);
+});
+
+Flight::route('PUT /notificationOff', function() {
+
+   $userId = Flight::get('user')->id; 
+   $userService = new UserService();
+   $result = $userService->turnNotificationOff($userId);
+
+   Flight::json([
+      'result' => $result
+   ]);
+});
+
+Flight::route("GET /getUserById", function(){
+
+   $userService = new UserService();
+   $result = $userService->getUserById(Flight::get('user')->id);
+
+   Flight::json([
+      'result' => $result
+   ]);
+});
+
+Flight::route("PUT /editUser", function(){
+
+   $payload = Flight::request()->data->getData();
+   $userService = new UserService();
+   $userId = Flight::get('user')->id;
+   $result = $userService->editUser($payload,$userId);
+
+   Flight::json([
+      'result' => $result
+   ]);
+});
+
+Flight::route("DELETE /deleteUser", function(){
+
+   $userService = new UserService();
+   $userId = Flight::get('user')->id;
+   Flight::user_service()->delete($userId);
+
+});
 
 ?>
