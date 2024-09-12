@@ -160,5 +160,29 @@ class UserService extends BaseService{
     public function getUsersWithNotificationsOn() {
         return $this->dao->getUsersWithNotificationsOn();
     }
+
+    public function editUser($data, $id){
+        if (!empty($data['password'])) {
+     
+            $hash = password_hash($data['password'], PASSWORD_DEFAULT);
+        } else {
+        
+            $currentUser = $this->getUserById($id);
+            $hash = $currentUser['password']; 
+        }
+    
+        $user = [
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
+            'username' => $data['username'],
+            'email' => $data['email'],
+            'password' => $hash,
+            'phone_number' => $data['phone_number']
+        ];
+    
+        return $this->update($user, $id);
+    }
+    
+
 }
 ?>
