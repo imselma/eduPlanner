@@ -7,13 +7,13 @@ class TaskService extends BaseService{
         parent::__construct(new TaskDao);
     }
 
-    public function addTask($data){
+    public function addTask($data, $user_id){
 
         $task = [
             'task_name' => $data['task_name'],
             'task_description' => $data['task_description'],
             'task_date' => $data['task_date'],
-            'user_id' => $data['user_id'],
+            'user_id' => $user_id,
             'task_time' => $data['task_time'],
             'task_type' => $data['task_type']
         ];

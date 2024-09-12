@@ -1,14 +1,16 @@
 var responseService = {
 
     interval: null,
-    generateResponse: function () {
+    generateResponse: function (message = null, silentMode = false) {
         var out = document.getElementById("output");
         var userInput = document.getElementById("text").value;
+
+        var promptText = message || userInput;
 
         $.ajax({
             url: Constants.get_api_base_url() + "generateResponse",
             method: "POST",
-            data: JSON.stringify({ prompt: userInput }), // Stringify the data to be sent
+            data: JSON.stringify({ prompt: promptText }), // Stringify the data to be sent
             contentType: "application/json",
             dataType: "json",
             beforeSend: function (xhr) {
@@ -18,25 +20,29 @@ var responseService = {
             },
             success: function (response) {
                 console.log('response', response);
-                if (response && response.result && response.result.length > 0) {
-                    out.value = '';
-                    userInput.value = '';
-                    var text = response.result;
-                    var i = 0;
-            
-                    responseService.interval = setInterval(function () {
-                        if (i < text.length) {
-                            out.value += text.charAt(i);
-                            i++;
-                        } else {
-                            clearInterval(responseService.interval);
-                        }
-                    }, 20);
-                } else {
-                    console.log("No valid response received.");
-                    out.value = "No response from AI.";
+                if (!silentMode) {
+                    if (response && response.result && response.result.length > 0) {
+                        out.value = '';
+                        userInput.value = '';
+
+                        var text = response.result;
+                        var i = 0;
+
+                        responseService.interval = setInterval(function () {
+                            if (i < text.length) {
+                                out.value += text.charAt(i);
+                                i++;
+                            } else {
+                                clearInterval(responseService.interval);
+                            }
+                        }, 20);
+                    } else {
+                        console.log("No valid response received.");
+                        out.value = "No response from AI.";
+                    }
                 }
             },
+
             error: function (xhr, status, error) {
                 console.log("Error: " + error);
                 out.value = "An error occurred.";
@@ -54,8 +60,16 @@ var responseService = {
     }
 };
 
+window.addEventListener('load', function () {
+    var defaultMessage = "This is an educational friendly chatbot in my eduPlanner application. Please aswer only to questions and inquiries that are od educational/science type and study purposes. For other types of questions and inquiries answer: I am not abled to aswer to this inquire.";
+    responseService.generateResponse(defaultMessage, true);
+});
+
+
 document.querySelector('.btn1').addEventListener('click', function () {
     responseService.generateResponse();
+    var userInput = document.getElementById("text");
+    userInput.value = '';
 });
 
 document.querySelector('.btn2').addEventListener('click', function () {

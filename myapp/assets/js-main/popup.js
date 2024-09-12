@@ -8,6 +8,9 @@ function showAlert(message) {
     document.getElementById("alert-close").onclick = function() {
         alertBox.style.display = "none";
         overlay.style.display = "none";
+        if (callback) {
+            callback(); // Execute the callback when OK is clicked
+        }
     };
 }
 

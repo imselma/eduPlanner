@@ -1,14 +1,14 @@
 
 .ai-section {
     padding: 1em 0;
-    background-color: #23659f; /* Converted #1D809F to HSL */
+    background-color: #23659f; 
     background-image: radial-gradient(650px circle at 0% 0%,
-    #f7c626 25%,              /* Lighter yellow at the center */
-    hsl(46, 93%, 50%) 35%,    /* Smooth, even transition towards the edge */
+    #f7c626 25%,             
+    hsl(46, 93%, 50%) 35%,  
     transparent 100%),
   radial-gradient(1250px circle at 100% 100%,
-    #f7c626 15%,              /* Lighter yellow at the center */
-    hsl(46, 93%, 50%) 35%,    /* Slightly darker yellow */
+    #f7c626 15%,            
+    hsl(46, 93%, 50%) 35%, 
     transparent 100%),
         url("../img/background.jpg"); 
     }
@@ -27,8 +27,8 @@
     }
     
     textarea {
-        width: 50%; /* Increase width for larger screens */
-        height: 25em; /* Maintain the height */
+        width: 50%; 
+        height: 25em; 
         padding: 10px;
         border-radius: 5px;
         border: 2px solid #02427b;
@@ -51,7 +51,7 @@
     
     input[type="text"] {
         color: white;
-        width: 37%; /* Adjust for better responsiveness */
+        width: 37%; 
         padding: 10px;
         border: 2px solid #02427b;
         background-color: #1d819fe2;
@@ -79,13 +79,42 @@
 
     input::placeholder {
         color: white;
-        opacity: 1; /* Ensures the placeholder is fully opaque */
+        opacity: 1; 
     }
 
     #output::placeholder {
         color: white;
-        opacity: 1; /* Ensures the placeholder is fully opaque */
+        opacity: 1; 
     }
+
+    #logout-btn {
+        border: none;
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        font-weight: bold;
+        text-decoration: none;
+        border-radius: 5px;
+        width: 100px;
+        height: 50px;
+        text-align: center;
+        color: #fff;
+        background: rgba(52, 58, 64, 0.5);
+        line-height: 50px;
+        z-index: 999;
+        display: flex;
+        justify-content: center; 
+        align-items: center;
+      }
+
+      #logout-btn:focus, #logout-btn:hover {
+        color: #fff;
+      }
+      
+      #logout-btn:hover {
+        background: #343a40;
+      }
+      
     
     /* Responsive Styling for Mobile Screens */
     @media (max-width: 1000px) {

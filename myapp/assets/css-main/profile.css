@@ -1,109 +1,346 @@
-html {
-    height: 100%;
-    width: 100%;
-}
-.profile-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* Ensure items are evenly spaced */
-    padding: 10px;
+.main-content {
     background-color: hsl(208, 64%, 38%); /* Converted #1D809F to HSL */
-    background-image: radial-gradient(650px circle at 0% 0%,
-        hsl(208, 64%, 50%) 15%, /* Lightened #1D809F */
-        hsl(208, 64%, 45%) 35%, /* Slightly lighter #1D809F */
-        hsl(208, 64%, 38%) 75%, /* Slightly darker #1D809F */
-        hsl(208, 64%, 34%) 80%, /* Darkened #1D809F */
-        transparent 100%),
-      radial-gradient(1250px circle at 100% 100%,
-        hsl(46, 93%, 56%) 15%, /* Converted #efb706 to HSL */
-        hsl(46, 93%, 50%) 35%, /* Slightly darkened #efb706 */
-        hsl(46, 93%, 45%) 75%, /* Further darkened #efb706 */
-        hsl(46, 93%, 40%) 80%, /* More darkened #efb706 */
-        transparent 100%);
-    color: white; 
+  background-image: radial-gradient(650px circle at 0% 0%,
+      hsl(208, 64%, 50%) 15%, /* Lightened #1D809F */
+      hsl(208, 64%, 45%) 35%, /* Slightly lighter #1D809F */
+      hsl(208, 64%, 38%) 75%, /* Slightly darker #1D809F */
+      hsl(208, 64%, 34%) 80%, /* Darkened #1D809F */
+      transparent 100%),
+    radial-gradient(1250px circle at 100% 100%,
+      #f7c626 15%, /* Converted #efb706 to HSL */
+      hsl(46, 93%, 50%) 35%, /* Slightly darkened #efb706 */
+      hsl(46, 93%, 45%) 75%, /* Further darkened #efb706 */
+      hsl(46, 93%, 40%) 80%, /* More darkened #efb706 */
+      transparent 100%);
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    width:100%;
 }
 
-
-.title-box.py-4.px-4 {
-    padding-top: 3rem !important;
-    padding-bottom: 0rem !important;
-}
-
-.profile img {
-    width: 130px;
-    height: auto;
-    border-radius: 50%; /* Make the image rounded */
-    border: 3px solid #fff; /* Add a white border around the image */
-}
-
-.profile {
-    flex-shrink: 0; /* Prevents the profile image from shrinking */
-}
-
-.info-box {
-    flex: 1; /* Takes remaining space */
-    margin-left: 20px; /* Spacing between profile image and text */
-}
-
-.user-name {
-    color: black;
-    margin-top: 0; /* Remove top margin for user name */
-    margin-bottom: 0.5rem; /* Adjust spacing */
-}
-
-/* Wrapper for the main content to push the footer to the bottom */
-.wrapper, .main-card {
-    min-height: 100%;
+.profile-container {
+    margin-top: 2rem;
+    width: 100%;
+    max-width: 1100px;
+    padding: 10px;
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
 }
 
-/* Main content area */
-.main-content {
-    flex: 1; /* Fill remaining vertical space */
-}
-.footerc {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-  }
-
-.social-link {
+.profile-info-box {
+    background-color: rgba(52, 58, 64, 0.5);
+    border-radius: 8px;
+    padding: 20px;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    height: 4rem;
-    width: 4rem;
-    line-height: 4.3rem;
+    width: 100%;
+    color: white;
+}
+
+.profile-details h2, 
+.profile-details p {
+    margin-bottom: 10px;
+}
+
+.profile-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.profile-btn {
+    padding: 10px 20px;
+    background-color: #1f5b8f;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.profile-btn:hover {
+    background-color: #153f64;
+    transform: scale(1.05);
+}
+
+.dropup,
+.dropright,
+.dropdown,
+.dropleft {
+  position: relative; }
+
+.dropdown-toggle {
+  white-space: nowrap; }
+  .dropdown-toggle::after {
+    display: inline-block;
+    margin-left: 0.255em;
+    vertical-align: 0.255em;
+    content: "";
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent; }
+  .dropdown-toggle:empty::after {
+    margin-left: 0; }
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  float: left;
+  min-width: 10rem;
+  padding: 0.5rem 0;
+  margin: 0.125rem 0 0;
+  font-size: 1rem;
+  color: #212529;
+  text-align: left;
+  list-style: none;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0.25rem; }
+
+.dropdown-menu-left {
+  right: auto;
+  left: 0; }
+
+.dropdown-menu-right {
+  right: 0;
+  left: auto; }
+
+.profile-title{
+    margin-top: 10px;
     font-size: 1.5rem;
-    background-color:#1D809F;
-    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
+    color: #ffffff;
+}
+
+.dropdown-container {
+    margin-top: 5px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-left: 1px; /* Slight offset for alignment */
+}
+
+.dropdown-content {
+    margin-top: 2px;
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 160px;
+    border-radius: 8px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease;
+    border-radius: 8px;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(52, 58, 64, 0.5);
+}
+
+.dropdown-btn {
+    background-color: rgba(52, 58, 64, 0.5);
+    font-size: medium;
+    color: white;
+    border-radius: 8px;
+    width: 7rem;
+}
+
+
+/* Show the dropdown content on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+#deadline-container {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 20px; 
+    justify-content: flex-start;
+    margin-top: 20px;
+    width: 100%;
+}
+
+
+.custom-card {
+    width: calc(25% - 20px); 
+    min-width: 200px; 
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.custom-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.custom-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #e0a800;
+    margin-bottom: 10px;
+}
+
+.custom-details {
+    color: #555;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.delete-delete-btn, .edit-exam-btn {
+    bottom: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: black;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding-left: 0;
+}
+
+.delete-delete-btn:hover, .edit-exam-btn:hover {
+    color: #1f5b8f;
+}
+
+.modal-overlay-profile, .modal-overlay-profile-edit, .modal-overlay-profile-delete, .modal-overlay-success {
+    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); 
+    z-index: 999;
+  }
+  
+ .modal-profile, .modal-profile-edit, .modal-profile-delete, .modal-success {
+    font-size: 10px;
+    display: none; 
+    position: fixed;
+    top: 20px; 
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 20px;
+    background-color: hsl(208, 64%, 38%); 
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    z-index: 1000; 
+    width: 90%;
+    max-width: 500px;
+  }
+  
+.modal-profile button, .modal-profile-edit button, .modal-profile-delete button, .modal-success button{
+    padding: 10px 20px;
+    background-color: #dbb122;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+  }
+  
+.modal-profile button:hover, .modal-profile-edit button:hover, .modal-profile-delete button:hover, .modal-success button:hover  {
+    background-color: hsl(46, 93%, 45%);
   }
 
-  .social-link:hover {
-    background-color: #1D809F; /* same as the static background */
+.pagination-controls-task, .pagination-controls-exam {
+    margin-top: 1rem;
 }
 
+#prev-page-task, #next-page-task, #prev-page-exam, #next-page-exam{
+    background-color: rgba(52, 58, 64, 0.5);
+    font-size: medium;
+    color: white;
+    border-radius: 8px;
+    width: 7rem;
+    border:none;
 
-.icon-calendar {
-    font-size: 20px; /* Adjust icon size */
-    color: white; /* Icon color */
-    font-weight: bold;
 }
 
-  @media (max-width: 768px) {
-    .profile-header {
-        flex-direction: column; /* Stack items vertically on mobile */
-        align-items: flex-start; /* Align items to the left on mobile */
+.form-container-edit-profile {
+    margin-top: 10%; }
+  
+.form-label-edit {
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.9); 
+}
+  
+.input {
+    border: none;
+    background: none;
+    border-bottom: 1px rgba(255, 255, 255, 0.2) solid;
+    display: block;
+    margin-bottom: 50px;
+    width: 300px;
+    height: 20px;
+    text-align: center;
+    -webkit-transition: border-color 250ms;
+    -o-transition: border-color 250ms;
+    transition: border-color 250ms;
+    color: #fff; 
+}
+  
+.input:focus {
+    outline: none;
+    border-color: #fff; 
+}
+  
+.error-input {
+    border-color: #1D809F; 
+}
+
+@media (max-width: 600px) {
+    .custom-card {
+        width: 100%;
+    }
+}
+
+@media (min-width: 601px ) and (max-width: 1024px) {
+    .custom-card {
+        width: 40%;
+    }
+}
+
+@media (min-width: 1025px) {
+    .custom-card {
+        width: 23%; /* Four cards per row */
+        display: inline-block;
+        vertical-align: top;
     }
 
-    .info-box {
-        margin-top: 10px; /* Space between image and text on mobile */
-        margin-left: 0; /* Reset margin on mobile */
+    #pagination-container {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
     }
 
-    .profile {
-        margin-bottom: 10px; /* Space below image on mobile */
+    #prev-page, #next-page {
+        width: 100px;
+        margin: 5px;
     }
 }
 
