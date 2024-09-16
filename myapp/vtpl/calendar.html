@@ -99,13 +99,13 @@
                                         <!-- Hidden input for storing the selected date -->
                                         <input type="hidden" id="eventdate" name="eventdate">
                                         <!--Name-->
-                                        <label class="form-label" id="valueFromMyButton1" for="e-name">Event name</label>
+                                        <label class="form-label" id="valueFromMyButton1" for="e-name" style=" font-size: medium;">Event name</label>
                                         <input class="input" type="text" id="e-name" name="eventname" maxlength="36" style="background-color: transparent;  border-top: transparent; border-left: transparent; border-right: transparent; box-shadow: none; border-bottom: 1px rgb(255, 255, 255) solid; width: auto;">
                                         <!--Description-->
-                                        <label class="form-label" id="valueFromMyButton2" for="e-place">Event Details</label>
+                                        <label class="form-label" id="valueFromMyButton2" for="e-place" style="font-size: medium;">Event Details</label>
                                         <input class="input" type="text" id="e-details" name="eventplace" style="background-color: transparent; border-top: transparent; border-left: transparent; border-right: transparent; box-shadow: none; border-bottom: 1px rgb(255, 255, 255) solid; width: auto;">
                                         <!-- Time input for HH:MM -->
-                                        <label class="form-label" id="valueFromMyButton3" for="e-time">Event Time</label>
+                                        <label class="form-label" id="valueFromMyButton3" for="e-time" style="font-size: medium;">Event Time</label>
                                         <input class="input time-input" type="time" id="e-time" name="eventtime" style="margin-bottom: 10px; background-color: transparent; border-top: transparent; border-left: transparent; border-right: transparent; box-shadow: none; border-bottom: 1px rgb(255, 255, 255) solid; width: 15rem;">
                                         <!--Buttons-->
                                         <input type="button" value="Cancel" class="button" id="cancel-button" >
@@ -171,17 +171,17 @@
                                     <!--Form elements-->
                                     <div class="form-container" align="center">
                                         <!--Name-->
-                                        <label class="form-label" id="edit1" for="editname1" style="font-size: 18px; font-weight: 500; color: black;">Event name</label>
-                                        <input class="input" type="text" id="editname1" name="eventnameedit" maxlength="36" style="font-size: 16px;">
+                                        <label class="form-label" id="edit1" for="editname1" style="font-size: 18px; font-weight: 500; color: white; ">Event name</label>
+                                        <input class="input" type="text" id="editname1" name="eventnameedit" maxlength="36" style="font-size: 16px; background-color: transparent;  border-top: transparent; border-left: transparent; border-right: transparent; box-shadow: none; border-bottom: 1px rgb(255, 255, 255) solid; width: 50%;">
                                         <!--Description-->
-                                        <label class="form-label" id="edit2" for="editdetails2" style="font-size: 18px; font-weight: 500; color: black;">Event Details</label>
-                                        <input class="input" type="text" id="editdetails2" name="eventplaceedit" style="font-size: 16px;">
+                                        <label class="form-label" id="edit2" for="editdetails2" style="font-size: 18px; font-weight: 500; color: white;">Event Details</label>
+                                        <input class="input" type="text" id="editdetails2" name="eventplaceedit" style="font-size: 16px; background-color: transparent;  border-top: transparent; border-left: transparent; border-right: transparent; box-shadow: none; border-bottom: 1px rgb(255, 255, 255) solid; width: 50%;">
                                         <!-- Time input for HH:MM -->
-                                        <label class="form-label" id="edit3" for="edittime3" style="font-size: 18px; font-weight: 500; color: black;">Event Time</label>
-                                        <input class="input time-input" type="time" id="edittime3" name="eventtimetime" style=" font-size: 16px;">
+                                        <label class="form-label" id="edit3" for="edittime3" style="font-size: 18px; font-weight: 500; color: white;">Event Time</label>
+                                        <input class="input time-input" type="time" id="edittime3" name="eventtimetime" style=" font-size: 16px; background-color: transparent;  border-top: transparent; border-left: transparent; border-right: transparent; box-shadow: none; border-bottom: 1px rgb(255, 255, 255) solid; width: 50%;">
                                         <!-- Date input for choosing the event date -->
-                                        <label class="form-label" id="edit4" for="editdate4" style="font-size: 18px; font-weight: 500; color: black;">Event Date</label>
-                                        <input class="input date-input" type="date" id="editdate4" name="eventdateedit" style="margin-bottom: 10px; font-size: 16px;">
+                                        <label class="form-label" id="edit4" for="editdate4" style="font-size: 18px; font-weight: 500; color: white;">Event Date</label>
+                                        <input class="input date-input" type="date" id="editdate4" name="eventdateedit" style="margin-bottom: 10px; font-size: 16px; background-color: transparent;  border-top: transparent; border-left: transparent; border-right: transparent; box-shadow: none; border-bottom: 1px rgb(255, 255, 255) solid; width: 50%;">
                                         <!--Id-->
                                         <input type="hidden" id="eventid" name="eventid">
                                     </div>
@@ -233,5 +233,50 @@
     });
 
     </script>
+
+    <script>
+        $(document).ready(function () {
+    // Event listener for selecting the event type from the dropdown
+    $("#event-type-dropdown .dropdown-item").on("click", function () {
+        var selectedEventType = $(this).data("type");
+        
+        // Update the hidden input value with the selected event type
+        $("#eventType").val(selectedEventType); 
+        
+        // Update the dropdown toggle button's text to reflect the selected event type
+        $(".dropdown-toggle").text(selectedEventType);
+
+        // Update the details label based on the selected event type
+        if (selectedEventType === "Task") {
+            $("#valueFromMyButton2").text("Description"); // Change label to "Description"
+        } else if (selectedEventType === "Exam") {
+            $("#valueFromMyButton2").text("Location"); // Change label to "Location"
+        }
+    });
+
+});
+
+
+$(document).ready(function () {
+    // Event listener for selecting the event type from the dropdown
+    $("#event-type-dropdown .dropdown-item").on("click", function () {
+        var selectedEventType = $(this).data("type");
+        
+        // Update the hidden input value with the selected event type
+        $("#eventType").val(selectedEventType); 
+        
+        // Update the dropdown toggle button's text to reflect the selected event type
+        $(".dropdown-toggle").text(selectedEventType);
+
+        // Update the details label based on the selected event type
+        if (selectedEventType === "Task") {
+            $("#edit2").text("Description"); // Change label to "Description"
+        } else if (selectedEventType === "Exam") {
+            $("#edit2").text("Location"); // Change label to "Location"
+        }
+    });
+});
+
+</script>
     
 </body>

@@ -3,7 +3,7 @@ var responseService = {
     interval: null,
     generateResponse: function (message = null, silentMode = false) {
         var out = document.getElementById("output");
-        var userInput = document.getElementById("text-eduAI").value;
+        var userInput = "From now on you should only answer questions which are of an educational type, which are related to school and which are useful for students to learn." +document.getElementById("text-eduAI").value;
 
         var promptText = message || userInput;
 
@@ -60,11 +60,11 @@ var responseService = {
     }
 };
 
-window.addEventListener('load', function () {
+/*window.addEventListener('load', function () {
     var defaultMessage = "From now on you should only answer questions which are of an educational type, which are related to school and which are useful for students to learn.";
     responseService.generateResponse(defaultMessage, true);
     console.log('Default message sent!');
-});
+});*/
 
 
 document.querySelector('.btn1').addEventListener('click', function () {
