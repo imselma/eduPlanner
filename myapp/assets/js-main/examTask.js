@@ -5,9 +5,9 @@ var TaskExamService = {
     selectedEventType: '',
 
     //Display logic
-    displayTasksExams: function (task_exam_date = $("input[name='eventdate']").val()) { // Default to the input field's date
+    displayTasksExams: function (task_exam_date = $("input[name='eventdate']").val()) { 
 
-        // Clear the event container before displaying new exams
+    
         $(".events-container").empty();
         //console.log('datum',task_exam_date);
         
@@ -30,7 +30,8 @@ var TaskExamService = {
                 }
             },
             success: function (data) {
-                // Handle the received data
+    
+                $(".events-container").empty();
                 TaskService.tasksArray = data.result;
 
                 if (TaskService.tasksArray.length === 0) {
@@ -40,7 +41,7 @@ var TaskExamService = {
                     $(event_card).append(event_name);
                     $(".events-container").append(event_card);
                 } else {
-                    // Display each task
+    
                     TaskService.tasksArray.forEach((task) => {
                        // console.log("Task", task);
                         var event_card = $("<div class='event-card' style='position: relative;'></div>");
@@ -90,6 +91,7 @@ var TaskExamService = {
                         $(button_container).append(edit_button).append(delete_button);
                         $(event_card).append(event_id).append(event_name).append(event_details).append(event_time).append(button_container);
                         $(".events-container").append(event_card);
+                
                     });
                 }
             },
@@ -111,7 +113,7 @@ var TaskExamService = {
                 }
             },
             success: function (data) {
-                // Handle the received data
+    
                 ExamService.examsArray = data.result;
 
                 if (ExamService.examsArray.length === 0) {
@@ -121,7 +123,7 @@ var TaskExamService = {
                     $(event_card).append(event_name);
                     $(".events-container").append(event_card);
                 } else {
-                    // Display each exam
+      
                     ExamService.examsArray.forEach((exam) => {
                         var event_card = $("<div class='event-card' style='position: relative;'></div>");
                         var event_id = $("<div class='event-id' style='visibility: hidden;'></div>")
@@ -167,6 +169,7 @@ var TaskExamService = {
                         $(button_container).append(edit_button).append(delete_button);
                         $(event_card).append(event_id).append(event_name).append(event_details).append(event_time).append(button_container);
                         $(".events-container").append(event_card);
+
                     });
                 }
             },

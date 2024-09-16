@@ -22,8 +22,8 @@ var responseService = {
                 console.log('response', response);
                 if (!silentMode) {
                     if (response && response.result && response.result.length > 0) {
-                        out.value = '';
-                        userInput.value = '';
+                        out.value = ''; // Clear the output
+                        document.getElementById("text-eduAI").value = '';
 
                         var text = response.result;
                         var i = 0;
@@ -61,14 +61,14 @@ var responseService = {
 };
 
 window.addEventListener('load', function () {
-    var defaultMessage = "From now on you should only answer questions that are of an educational type and useful for students to learn.";
+    var defaultMessage = "From now on you should only answer questions which are of an educational type, which are related to school and which are useful for students to learn.";
     responseService.generateResponse(defaultMessage, true);
+    console.log('Default message sent!');
 });
 
 
 document.querySelector('.btn1').addEventListener('click', function () {
     responseService.generateResponse();
-    var userInput = document.getElementById("text-eduAI");
 });
 
 document.querySelector('.btn2').addEventListener('click', function () {

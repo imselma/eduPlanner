@@ -41,6 +41,7 @@ var TaskService = {
                     exam_type: eventType
                 };
 
+                console.log('Exam route');
                 ExamService.addExam(entityExam, eventDate); // Passed eventDate to display exams for this date
             }
         });
