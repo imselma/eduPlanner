@@ -236,21 +236,19 @@
 
     <script>
         $(document).ready(function () {
-    // Event listener for selecting the event type from the dropdown
+
     $("#event-type-dropdown .dropdown-item").on("click", function () {
         var selectedEventType = $(this).data("type");
         
-        // Update the hidden input value with the selected event type
+ 
         $("#eventType").val(selectedEventType); 
-        
-        // Update the dropdown toggle button's text to reflect the selected event type
         $(".dropdown-toggle").text(selectedEventType);
 
-        // Update the details label based on the selected event type
+
         if (selectedEventType === "Task") {
-            $("#valueFromMyButton2").text("Description"); // Change label to "Description"
+            $("#valueFromMyButton2").text("Description"); 
         } else if (selectedEventType === "Exam") {
-            $("#valueFromMyButton2").text("Location"); // Change label to "Location"
+            $("#valueFromMyButton2").text("Location"); 
         }
     });
 
@@ -258,21 +256,18 @@
 
 
 $(document).ready(function () {
-    // Event listener for selecting the event type from the dropdown
+
     $("#event-type-dropdown .dropdown-item").on("click", function () {
         var selectedEventType = $(this).data("type");
         
-        // Update the hidden input value with the selected event type
+
         $("#eventType").val(selectedEventType); 
-        
-        // Update the dropdown toggle button's text to reflect the selected event type
         $(".dropdown-toggle").text(selectedEventType);
 
-        // Update the details label based on the selected event type
         if (selectedEventType === "Task") {
-            $("#edit2").text("Description"); // Change label to "Description"
+            $("#edit2").text("Description"); 
         } else if (selectedEventType === "Exam") {
-            $("#edit2").text("Location"); // Change label to "Location"
+            $("#edit2").text("Location"); 
         }
     });
 });
