@@ -84,7 +84,7 @@ var UserService = {
               },
 success: function(result) {
     
-                showAlert("Login succesfull!");
+                //showAlert("Login succesfull!");
                 console.log("Login succesfull:", result);
                 $("input[name='loginemail']").val(''),
                 $("input[name='loginpassword']").val('')

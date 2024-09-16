@@ -3,7 +3,7 @@ var responseService = {
     interval: null,
     generateResponse: function (message = null, silentMode = false) {
         var out = document.getElementById("output");
-        var userInput = document.getElementById("text").value;
+        var userInput = document.getElementById("text-eduAI").value;
 
         var promptText = message || userInput;
 
@@ -54,24 +54,29 @@ var responseService = {
     
         if (responseService.interval) {
             clearInterval(responseService.interval);
-            responseService.interval = null;
+            responseService.interval = null;           
             console.log("Generation stopped.");
         }
     }
 };
 
 window.addEventListener('load', function () {
-    var defaultMessage = "This is an educational friendly chatbot in my eduPlanner application. Please aswer only to questions and inquiries that are od educational/science type and study purposes. For other types of questions and inquiries answer: I am not abled to aswer to this inquire.";
+    var defaultMessage = "From now on you should only answer questions that are of an educational type and useful for students to learn.";
     responseService.generateResponse(defaultMessage, true);
 });
 
 
 document.querySelector('.btn1').addEventListener('click', function () {
     responseService.generateResponse();
-    var userInput = document.getElementById("text");
-    userInput.value = '';
+    var userInput = document.getElementById("text-eduAI");
 });
 
 document.querySelector('.btn2').addEventListener('click', function () {
     responseService.stopGenerate();
+    var userInput = document.getElementById("text-eduAI");
+    var AiOutput = document.getElementById("output");
+
+    userInput.value = "";
+    AiOutput.value = "";
+
 });

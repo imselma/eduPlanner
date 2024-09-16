@@ -84,7 +84,7 @@ var UserService1 = {
                 $("input[name='signuppassword']").val(''),
                 $("input[name='signupnumber']").val('')
                 window.location.hash = '#login';
-                showAlert1("Registration successfull!");            
+                //showAlert1("Registration successfull!");            
             },
             error: function(XMLHttpRequest, textStatus, errorThrown) {
                 console.log(XMLHttpRequest.responseText);

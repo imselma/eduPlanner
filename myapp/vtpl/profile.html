@@ -1,6 +1,5 @@
 
     <link rel="stylesheet" href="assets/css-main/profile.css">
-    <link rel="stylesheet" href="assets/css-main/styles.css">
     <main>
         <div class="main-content">
             <div class="profile-container">
@@ -8,9 +7,9 @@
                     <div class="profile-details" id="profile-details">
                     </div>
                     <div class="profile-actions">
-                        <button class="profile-btn" id="edit-btn">Edit Profile</button>
-                        <button class="profile-btn" id="delete-btn">Deactivate Profile</button>
-                        <button class="profile-btn" id="logout-btnn">Log Out</button>
+                        <button class="profile-btn1" id="edit-btn">Edit Profile</button>
+                        <button class="profile-btn2" id="delete-btn">Deactivate Profile</button>
+                        <button class="profile-btn3" id="logout-btnn">Log Out</button>
                     </div>
                 </div>
                 <p class="profile-title"><b>Your upcomming deadlines...</b></p>
@@ -70,19 +69,19 @@
         <div id="modal-overlay-profile-edit" class="modal-overlay-profile-edit"></div>
 
         <div id="modal-profile-edit" class="modal-profile-edit">
-                <form id="edit-form">
+                <form id="edit-form" autocomplete="off">
                     <!-- 2 column grid layout with text inputs for the first and last names -->
                     <div class="row">
                         <div class="col-md-6 mb-4">
                             <div data-mdb-input-init class="form-outline">
-                                <input type="text" id="editform1" class="form-control" name="editfirstname" />
+                                <input type="text" id="editform1" class="form-control" name="editfirstname" autocomplete="off" />
                                 <label class="form-label" style="color: white; margin-top:5px; font-size: 14px; text-transform: uppercase;"
                                     for="editform1">First name</label>
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
                             <div data-mdb-input-init class="form-outline">
-                                <input type="text" id="editform2" class="form-control" name="editlastname" />
+                                <input type="text" id="editform2" class="form-control" name="editlastname" autocomplete="off" />
                                 <label class="form-label" style="color: white; margin-top:5px; font-size: 14px; text-transform: uppercase;"
                                     for="editform2">Last name</label>
                             </div>
@@ -92,14 +91,14 @@
                     <div class="row">
                         <div class="col-md-6 mb-4">
                             <div data-mdb-input-init class="form-outline">
-                                <input type="text" id="editform3" class="form-control" name="editusername" />
+                                <input type="text" id="editform3" class="form-control" name="editusername" autocomplete="off"/>
                                 <label class="form-label" style="color: white; margin-top:5px; font-size: 14px; text-transform: uppercase;"
                                     for="editform3">Username</label>
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
                             <div data-mdb-input-init class="form-outline">
-                                <input type="email" id="editform4" class="form-control" name="editemail" />
+                                <input type="email" id="editform4" class="form-control" name="editemail" autocomplete="off"/>
                                 <label class="form-label" style="color: white; margin-top:5px; font-size: 14px; text-transform: uppercase;"
                                     for="editform4">Email address</label>
                             </div>
@@ -124,7 +123,6 @@
     <script src="utils/constants.js"></script>
     <script src="assets/js-main/profile.js"></script>
     <script src="assets/js-main/exams.js"></script>
-    <script src="assets/js-main/tasks.js"></script>
     <script src="assets/js-main/tasks.js"></script>
     <script src="assets/js-main/login.js"></script>
 
@@ -175,3 +173,4 @@
     });
 });
 </script>
+

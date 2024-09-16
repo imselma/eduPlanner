@@ -123,7 +123,7 @@
             height: 20em; /* Adjust height for smaller screens */
         }
     
-        input[type="text"] {
+        input[type="text-eduAI"] {
             width: 80%;
         }
     
@@ -140,7 +140,7 @@
             height: 15em; /* Further adjustment for very small screens */
         }
     
-        input[type="text"] {
+        input[type="text-eduAI"] {
             width: 80%;
         }
     

@@ -88,9 +88,8 @@ $("#delete-btn").on('click', function() {
     showModalDeleteProfile("Do you want to deactivate the account?");
 })
 
-
-$(document).ready(function () {
-    function displayEventType(eventType) {
+*$(document).ready(function () {
+    /*function displayEventType(eventType) {
         $("#deadline-container").empty();
 
         if (eventType === "Exam") {
@@ -98,7 +97,7 @@ $(document).ready(function () {
         } else if (eventType === "Task") {
            TaskService.getTasks();
         }
-    }
+    }*/
 
 
     displayEventType("Exam");
