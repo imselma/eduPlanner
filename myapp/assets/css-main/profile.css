@@ -47,10 +47,10 @@
 .profile-actions {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 10px; /* Add spacing between buttons */
 }
 
-.profile-btn {
+.profile-btn1, .profile-btn2, .profile-btn3 {
     padding: 10px 20px;
     background-color: #1f5b8f;
     color: white;
@@ -58,9 +58,10 @@
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%;  /* Make buttons full width */
 }
 
-.profile-btn:hover {
+.profile-btn1:hover, .profile-btn2:hover, .profile-btn3:hover  {
     background-color: #153f64;
     transform: scale(1.05);
 }
@@ -158,9 +159,17 @@
     color: white;
     border-radius: 8px;
     width: 7rem;
+    border: none;
+    text-decoration: none;
+    text-align: center;
+    color: #fff;
+    background: rgba(52, 58, 64, 0.5);
+    height: 50px;
+    z-index: 999;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
 }
-
-
 /* Show the dropdown content on hover */
 .dropdown:hover .dropdown-content {
     display: block;
@@ -221,36 +230,71 @@
     color: #1f5b8f;
 }
 
-.modal-overlay-profile, .modal-overlay-profile-edit, .modal-overlay-profile-delete, .modal-overlay-success {
-    display: none; 
+/* Modal Overlay */
+.modal-overlay-profile, 
+.modal-overlay-profile-edit, 
+.modal-overlay-profile-delete, 
+.modal-overlay-success {
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); 
+    background: rgba(0, 0, 0, 0.5);
     z-index: 999;
-  }
-  
- .modal-profile, .modal-profile-edit, .modal-profile-delete, .modal-success {
-    font-size: 10px;
-    display: none; 
+}
+
+/* Modal Container */
+.modal-profile, 
+.modal-profile-edit, 
+.modal-profile-delete, 
+.modal-success {
+    display: none;
     position: fixed;
-    top: 20px; 
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
     padding: 20px;
-    background-color: hsl(208, 64%, 38%); 
+    background-color: hsl(208, 64%, 38%);
     color: white;
     border-radius: 10px;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
     text-align: center;
-    z-index: 1000; 
-    width: 90%;
+    z-index: 1000;
+    width: 100%;
     max-width: 500px;
-  }
-  
-.modal-profile button, .modal-profile-edit button, .modal-profile-delete button, .modal-success button{
+    box-sizing: border-box;
+}
+
+/* Inputs for Modal Form */
+.modal-profile-edit input, 
+.modal-profile-edit .form-control {
+    color: black;
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+    background-color: white;
+}
+
+/* Labels for Modal Form */
+.modal-profile-edit .form-label {
+    text-transform: uppercase;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* Modal Buttons */
+.modal-profile button, 
+.modal-profile-edit button, 
+.modal-profile-delete button, 
+.modal-success button {
     padding: 10px 20px;
     background-color: #dbb122;
     border: none;
@@ -259,11 +303,17 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
     font-size: 16px;
-  }
-  
-.modal-profile button:hover, .modal-profile-edit button:hover, .modal-profile-delete button:hover, .modal-success button:hover  {
+    margin-top: 10px;
+}
+
+/* Hover Effect for Buttons */
+.modal-profile button:hover, 
+.modal-profile-edit button:hover, 
+.modal-profile-delete button:hover, 
+.modal-success button:hover {
     background-color: hsl(46, 93%, 45%);
-  }
+}
+
 
 .pagination-controls-task, .pagination-controls-exam {
     margin-top: 1rem;

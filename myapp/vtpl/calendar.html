@@ -71,14 +71,14 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                    <button class="button" id="add-button">Add Event</button>
+                                    <button class="button-add-event" id="add-button" style="width: auto;">Add Event</button>
                                 </div>
                             </div>
                             <div class="events-container">
                             </div>
                             <div class="dialog" id="dialog">
                                 <h2 class="dialog-header"> Add New Event </h2>
-                                <form class="form" id="form">
+                                <form class="form" id="form" autocomplete="off">
                                     <!--Dropdown button-->
                                     <div class="d-flex justify-content-center" style="margin-top: 10%;">
                                         <div class="btn-group">
@@ -99,16 +99,16 @@
                                         <!-- Hidden input for storing the selected date -->
                                         <input type="hidden" id="eventdate" name="eventdate">
                                         <!--Name-->
-                                        <label class="form-label" id="valueFromMyButton" for="e-name">Event name</label>
-                                        <input class="input" type="text" id="e-name" name="eventname" maxlength="36">
+                                        <label class="form-label" id="valueFromMyButton1" for="e-name">Event name</label>
+                                        <input class="input" type="text" id="e-name" name="eventname" maxlength="36" style="background-color: transparent;  border-top: transparent; border-left: transparent; border-right: transparent; box-shadow: none; border-bottom: 1px rgb(255, 255, 255) solid; width: auto;">
                                         <!--Description-->
-                                        <label class="form-label" id="valueFromMyButton" for="e-place">Event Details</label>
-                                        <input class="input" type="text" id="e-details" name="eventplace">
+                                        <label class="form-label" id="valueFromMyButton2" for="e-place">Event Details</label>
+                                        <input class="input" type="text" id="e-details" name="eventplace" style="background-color: transparent; border-top: transparent; border-left: transparent; border-right: transparent; box-shadow: none; border-bottom: 1px rgb(255, 255, 255) solid; width: auto;">
                                         <!-- Time input for HH:MM -->
-                                        <label class="form-label" id="valueFromMyButton" for="e-time">Event Time</label>
-                                        <input class="input time-input" type="time" id="e-time" name="eventtime" style="margin-bottom: 10px;">
+                                        <label class="form-label" id="valueFromMyButton3" for="e-time">Event Time</label>
+                                        <input class="input time-input" type="time" id="e-time" name="eventtime" style="margin-bottom: 10px; background-color: transparent; border-top: transparent; border-left: transparent; border-right: transparent; box-shadow: none; border-bottom: 1px rgb(255, 255, 255) solid; width: 15rem;">
                                         <!--Buttons-->
-                                        <input type="button" value="Cancel" class="button" id="cancel-button">
+                                        <input type="button" value="Cancel" class="button" id="cancel-button" >
                                         <button type="submit" class="button button-white" id="ok-button" style="margin-top: 10px;">OK</button>
                                     </div>
                                 </form>
@@ -117,7 +117,7 @@
                             <div id="custom-alert-overlay2" class="custom-alert-overlay"></div>
 
                             <div id="custom-alert2" class="custom-alert">
-                                <p style="font-size: 1.5rem;" id="alert-message2" style="font-size: 1rem;"></p>
+                                <p style="font-size: 1.5rem;" id="alert-message2" ></p>
                                 <button id="alert-close2">OK</button>
                             </div>
 
@@ -125,7 +125,7 @@
                             <div id="custom-alert-overlay3" class="custom-alert-overlay"></div>
 
                             <div id="custom-alert3" class="custom-alert">
-                                <p style="font-size: 1.5rem;" id="alert-message3" style="font-size: 1rem;"></p>
+                                <p style="font-size: 1.5rem;" id="alert-message3" ></p>
                                 <button id="alert-close3" style="margin-right: 10px;">Cancel</button>
                                 <button id="alert-confirm-delete">Delete</button>
                             </div>
@@ -134,7 +134,7 @@
                             <div id="custom-notification-popup-overlay" class="custom-notification-popup-overlay"></div>
 
                             <div id="custom-notification-popup" class="custom-notification-popup">
-                                <p style="font-size: 1.5rem;" id="notification-popup-message" style="font-size: 1rem;"></p>
+                                <p style="font-size: 1.5rem;" id="notification-popup-message"></p>
                                 <button id="notification-popup-close" style="margin-right: 10px;">Cancel</button>
                                 <button id="notification-popup-submit">Yes</button> 
                             </div>
@@ -151,7 +151,7 @@
                             <div id="edit-overlay" class="edit-overlay"></div>
 
                             <div id="edit-box" class="edit-box">
-                                <form class="form" id="form-edit-exam" style="margin-top: -2.5rem;"></form>
+                                <form class="form" id="form-edit-exam" style="margin-top: -2.5rem;" autocomplete="off"></form>
                                     <!--Dropdown button-->
                                     <div class="d-flex justify-content-center" style="margin-top: 10%;">
                                         <div class="btn-group">

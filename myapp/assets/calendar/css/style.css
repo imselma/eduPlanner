@@ -8385,7 +8385,7 @@ h1, h2, h3, h4, h5,
   top: 0; }
 
 /* Buttons */
-.button {
+.button, .button-add-event {
   cursor: pointer;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -8543,13 +8543,13 @@ h1, h2, h3, h4, h5,
   color: rgba(255, 255, 255, 0.9); }
 
 .input {
-  border: none;
-  background: none;
   border-bottom: 1px rgba(255, 255, 255, 0.2) solid;
   display: block;
   margin-bottom: 50px;
   width: 300px;
   height: 20px;
+  background-color: transparent;
+  border: transparent;
   text-align: center;
   -webkit-transition: border-color 250ms;
   -o-transition: border-color 250ms;
@@ -8558,7 +8558,7 @@ h1, h2, h3, h4, h5,
 
 .input:focus {
   outline: none;
-  border-color: #fff; }
+  border-color: transparent; }
 
 .error-input {
   border-color: #1D809F; }

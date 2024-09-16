@@ -124,8 +124,8 @@
 
     <script>
         $(document).ready(function () {
-            // Initialize the SPApp
             var app = $.jQuerySPApp({ defaultView: "home" });
+
             if (isAuthenticated()) {
                 app.route({ view: 'calendar', load: 'calendar.html' });
                 app.route({ view: 'profile', load: 'profile.html' });
@@ -135,6 +135,9 @@
                 app.route({ view: 'home', load: 'home.html' });
                 app.route({ view: 'login', load: 'login.html' });
                 app.route({ view: 'signup', load: 'signup.html' });
+                updateSidebarForUnauthenticatedUser();
+
+                restrictAccessToProtectedPages();
             }
 
             // Run the app
@@ -143,6 +146,17 @@
 
         function isAuthenticated() {
             return localStorage.getItem('token') !== null;
+        }
+
+        function restrictAccessToProtectedPages() {
+            const restrictedViews = ['#calendar', '#profile', '#eduAi'];
+
+            window.addEventListener("hashchange", function () {
+                const currentView = window.location.hash;
+                if (restrictedViews.includes(currentView) && !isAuthenticated()) {
+                    window.location.hash = '#home';
+                }
+            });
         }
 
         function updateSidebarForAuthenticatedUser() {
@@ -204,7 +218,7 @@
     <!--For scrolling to next section-->
     <script>
         function scrollToSection(event, sectionId) {
-            event.preventDefault(); 
+            event.preventDefault();
             document.getElementById(sectionId).scrollIntoView({
                 behavior: 'smooth'
             });

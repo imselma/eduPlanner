@@ -33,6 +33,11 @@
   overflow: hidden;
 }
 
+#login-btn, #signup-btn{
+  border-radius: 20px;
+  width: 30%;
+}
+
 .bg-glass {
   background-color:hsl(0deg 0% 100% / 52%) !important;
   backdrop-filter: saturate(200%) blur(25px);
