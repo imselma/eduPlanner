@@ -84,7 +84,7 @@ Flight::route("POST /login", function() {
       
          $token = JWT::encode(
             $jwt_payload,
-            getenv('JWT_SECRET'), 
+            JWT_SECRET, 
             'HS256' 
          );
       
