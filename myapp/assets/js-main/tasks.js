@@ -5,48 +5,6 @@ var TaskService = {
     currentPageTasks: 1,  
     itemsPerPageTasks: 4, 
 
-    init: function () {
-
-        $("#event-type-dropdown a").on("click", function () {
-            selectedEventType = $(this).data("type");
-            t_type = $(this).data("type");
-            $(".btn-group .dropdown-toggle").text(selectedEventType);
-        });
-
-        $("#form").on("submit", function (e) {
-            e.preventDefault(); 
-
-            var eventName = $("input[name='eventname']").val();
-            var eventDescription = $("input[name='eventplace']").val();
-            var eventTime = $("input[name='eventtime']").val();
-            var eventDate = $("input[name='eventdate']").val();
-            var eventType = t_type;
-
-            if (selectedEventType === 'Task') {
-                var entityTask = {
-                    task_name: eventName,
-                    task_description: eventDescription,
-                    task_time: eventTime,
-                    task_date: eventDate,
-                    task_type: eventType
-                };
-
-                TaskService.addTask(entityTask, eventDate); // Passed eventDate to display taskss for this date
-            }else if (selectedEventType === 'Exam') {
-                var entityExam = {
-                    exam_name: eventName,
-                    exam_place: eventDescription,
-                    exam_time: eventTime,
-                    exam_date: eventDate,
-                    exam_type: eventType
-                };
-
-                console.log('Exam route');
-                ExamService.addExam(entityExam, eventDate); // Passed eventDate to display exams for this date
-            }
-        });
-    },
-
     //Add logic
     addTask: function (entityTask, eventDate) {
         $.ajax({
@@ -196,7 +154,7 @@ var TaskService = {
             },
             success: function (result) {
                 console.log(result);
-                TaskService.getTasks();
+                //TaskService.getTasks();
                 TaskExamService.displayTasksExams(result.task_date);
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -227,6 +185,4 @@ $(document).ready(function() {
 
 });
 
-$(document).ready(function () {
-    TaskService.init();
-});
+

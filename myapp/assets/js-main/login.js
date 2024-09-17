@@ -97,9 +97,9 @@ success: function(result) {
                 window.location.hash = '#calendar';
                 updateSidebarForAuthenticatedUser();
                 UserService.getUser();
-                ExamService.getExams();
+               /* ExamService.getExams();
                 TaskService.getTasks();
-                TaskExamService.displayTasksExams();
+                TaskExamService.displayTasksExams();*/
                 if(result.notification_flag == '1'){
                     $('#l').css({
                     'background-color': '#198754a6', 
