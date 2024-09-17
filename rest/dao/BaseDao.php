@@ -10,6 +10,18 @@ require_once __DIR__."/../Config.php";
         try {
           $this->table_name = $table_name;
           $db_info = array(
+            'host' => DB_HOST,
+            'port' => DB_PORT,
+            'name' => DB_NAME,
+            'user' => DB_USERNAME,
+            'pass' => DB_PASSWORD
+            );
+
+          $this->conn = new PDO( 'mysql:host=' . $db_info['host'] . ';port=' . $db_info['port'] . ';dbname=' . $db_info['name'], $db_info['user'], $db_info['pass']);
+          // set the PDO error mode to exception
+
+          //COONECTION TO DEPLOYED DB
+          /*   $db_info = array(
             'host' => 'mysql-baa5491-selmaimsirovic28-28o3.d.aivencloud.com',
             'port' => '14159',
             'name' => 'defaultdb',
@@ -25,11 +37,12 @@ require_once __DIR__."/../Config.php";
           );
 
           $this->conn = new PDO( 'mysql:host=' . $db_info['host'] . ';port=' . $db_info['port'] . ';dbname=' . $db_info['name'], $db_info['user'], $db_info['pass'], $options );
-          // set the PDO error mode to exception
+          */
+
           $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-         //echo "Connected successfully";
+         // echo "Connected successfully";
         } catch(PDOException $e) {
-         //echo "Connection failed: " . $e->getMessage();
+         // echo "Connection failed: " . $e->getMessage();
         }
     }
 

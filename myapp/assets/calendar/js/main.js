@@ -173,7 +173,7 @@
                 $("#e-details").addClass("error-input");
             } else {
                 $("#dialog").hide(250);
-                console.log("new event");
+                //console.log("new event");
                 new_event_json(name, details, date, day);
                 date.setDate(day);
                 init_calendar(date);

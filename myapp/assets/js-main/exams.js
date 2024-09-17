@@ -26,7 +26,7 @@ var ExamService = {
                 showAlert2("Exam saved successfully!");
 
                 TaskExamService.displayTasksExams(eventDate);
-                ExamService.getExams();
+                //ExamService.getExams();
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
                 showAlert2("Failed to save the exam: " + XMLHttpRequest.responseText);
@@ -37,6 +37,8 @@ var ExamService = {
     
         //Delete Exam
         deleteExam: function(examId) {
+            $(".events-container").empty();
+
             $.ajax({
                 url: Constants.get_api_base_url() + "deleteExam/" + examId,
                 type: "DELETE",
