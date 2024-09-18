@@ -90,7 +90,7 @@ require_once __DIR__."/../Config.php";
             $query.= $column . "=:" . $column . ", ";
         }
         $query = substr($query, 0, -2);
-        $query.= " WHERE ${id_column} = :id";
+        $query.= " WHERE {$id_column} = :id";
         $stmt = $this->conn->prepare($query);
         $entity['id'] = $id;
         $stmt->execute($entity);
