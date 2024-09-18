@@ -7,6 +7,8 @@ if (!in_array('LIVE', $_ENV)) {
     $dotenv->load(__DIR__.'/.env');
 }
 
+print_r($_ENV); die;
+
 require_once "./services/BaseService.php";
 require_once "./services/UserService.php";
 require_once "./services/ExamService.php";
