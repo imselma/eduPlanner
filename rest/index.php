@@ -3,7 +3,7 @@ require_once dirname(__FILE__) . '/vendor/autoload.php';
 
 use Symfony\Component\Dotenv\Dotenv;
 
-if (!in_array('RENDER', $_ENV)) {
+if (!array_key_exists('RENDER', $_ENV)) {
     $dotenv = new Dotenv();
     $dotenv->load(__DIR__.'/.env');
 }
