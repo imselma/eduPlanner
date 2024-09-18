@@ -17,27 +17,16 @@ require_once __DIR__."/../Config.php";
             'pass' => DB_PASSWORD
             );
 
-          $this->conn = new PDO( 'mysql:host=' . $db_info['host'] . ';port=' . $db_info['port'] . ';dbname=' . $db_info['name'], $db_info['user'], $db_info['pass']);
-          // set the PDO error mode to exception
-
-          //COONECTION TO DEPLOYED DB
-          /*   $db_info = array(
-            'host' => 'mysql-baa5491-selmaimsirovic28-28o3.d.aivencloud.com',
-            'port' => '14159',
-            'name' => 'defaultdb',
-            'user' => 'avnadmin',
-            'pass' => 'AVNS_TGMYoY2BMDDO8kaWzls'
+          $options = [];
+          if (DB_HOST !== '127.0.0.1') {
+              $options = array(
+                PDO::MYSQL_ATTR_SSL_CA => MYSQL_ATTR_SSL_CA,
+                PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false,
             );
+          }
 
-            
-          $options = array(
-            PDO::MYSQL_ATTR_SSL_CA => "https://drive.google.com/file/d/1uvGhcj7eAIW48MtRwGY8dHox5UpyPQm5/view?usp=sharing",
-            PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false,
-  
-          );
-
-          $this->conn = new PDO( 'mysql:host=' . $db_info['host'] . ';port=' . $db_info['port'] . ';dbname=' . $db_info['name'], $db_info['user'], $db_info['pass'], $options );
-          */
+          $this->conn = new PDO( 'mysql:host=' . $db_info['host'] . ';port=' . $db_info['port'] . ';dbname=' . $db_info['name'], $db_info['user'], $db_info['pass'], $options);
+          // set the PDO error mode to exception
 
           $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
          // echo "Connected successfully";

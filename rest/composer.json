@@ -5,6 +5,7 @@
         "firebase/php-jwt": "^6.10",
         "zircote/swagger-php": "3.3.7",
         "phpmailer/phpmailer": "^6.9",
-        "orhanerday/open-ai": "^5.2"
+        "orhanerday/open-ai": "^5.2",
+        "symfony/dotenv": "^7.1"
     }
 }
