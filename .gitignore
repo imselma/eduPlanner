@@ -1,7 +1,7 @@
 vendor
-Config.php
 node_modules
 core/data/data.json
 jest.config.js
 package-lock.json
 package.json
+.env
